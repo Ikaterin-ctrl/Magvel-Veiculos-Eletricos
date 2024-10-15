@@ -1,0 +1,599 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de Cores */
+:root {
+    --cor-fundo: #F5F5F5;
+    --cor-texto: #333;
+    --cor-link: #007BFF;
+    --cor-link-hover: #0056b3;
+    --cor-cta: #F5FF7D; /* Verde limão */
+    --cor-cta-hover: #333;
+}
+
+/* Geral */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo); /* Cor de fundo da página */
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PP Rader', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos específicos para h1 e h2 */
+h1 {
+    font-size: 2.5rem; /* Usando rem para responsividade */
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 8rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* Corpo da página */
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--cor-link); /* Cor padrão para links */
+}
+
+a:hover {
+    color: var(--cor-link-hover); /* Cor para links quando passa o mouse */
+}
+
+/* Header */
+header {
+    background: #FFF;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px; /* Arredondamento do cabeçalho */
+    position: fixed;
+    width: calc(100% - 40px);
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    margin-bottom: 6rem;
+}
+
+/* Logo */
+.logo img {
+    height: 40px;
+}
+
+/* Navegação */
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+/* Botões de navegação */
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px; /* Arredondamento dos botões */
+    background-color: #FFF; /* Fundo dos botões */
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--cor-cta); /* Verde limão */
+    color: var(--cor-texto); /* Cor do texto quando em hover */
+}
+
+/* Estilo do menu no desktop */
+.navbar {
+    display: flex;
+    gap: 15px;
+}
+
+/* Estilo do menu mobile (hambúrguer) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+}
+
+/* Ocultar o menu no mobile */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        padding: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+}
+
+/* Estilo do herói */
+.hero {
+    padding: 50px 20px;
+    background-color: #fff; /* Fundo branco para o hero */
+    text-align: center;
+}
+
+.hero-content {
+    display: grid; /* Usar grid para organizar o conteúdo */
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    align-items: center; /* Alinha verticalmente ao centro */
+    gap: 40px; /* Espaço entre as colunas */
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+.hero-text {
+    text-align: left; /* Alinhar o texto à esquerda */
+    padding: 20px;
+}
+
+.hero-text h1 {
+    font-size: 2.5em; /* Tamanho do título */
+    margin: 0; /* Remove margens padrão */
+}
+
+.hero-text p {
+    font-size: 1.2em; /* Tamanho do parágrafo */
+    margin: 20px 0; /* Margem em cima e embaixo */
+}
+
+.hero-image {
+    margin-top: 40px; /* Espaço extra acima da imagem do carrinho */
+}
+
+.hero-image img {
+    width: 150%; /* Aumentar a largura da imagem do carrinho */
+    max-width: 100%; /* Impedir que a imagem fique maior que o contêiner */
+    height: auto;
+    border-radius: 20px; /* Arredondamento das bordas da imagem */
+    object-fit: cover; /* Garante que a imagem se ajuste corretamente */
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr; /* Muda para uma coluna em telas menores */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .hero-image img {
+        width: 100%; /* Imagem ocupa 100% da largura */
+    }
+}
+
+/*botões*/
+.cta-button {
+    background-color: #F5FF7D; /* Verde limão */
+    color: #333;
+    padding: 10px 15px; /* Ajuste o padding */
+    border-radius: 20px; /* Botão arredondado */
+    text-decoration: none;
+    position: relative; /* Para o pseudo-elemento */
+    overflow: hidden; /* Impede que o pseudo-elemento ultrapasse os limites do botão */
+    transition: transform 0.3s ease, background 0.3s ease; /* Transição suave */
+    margin-top: 20px; /* Espaço acima do botão */
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%; /* Ajuste a largura para criar o efeito de explosão */
+    height: 300%; /* Ajuste a altura para criar o efeito de explosão */
+    background: rgba(255, 255, 255, 0.7); /* Cor do efeito de explosão */
+    border-radius: 50%; /* Bordas arredondadas */
+    transform: translate(-50%, -50%) scale(0); /* Inicialmente invisível */
+    transition: transform 0.5s ease; /* Transição suave do efeito */
+    z-index: 0; /* Coloca o pseudo-elemento atrás do texto do botão */
+}
+
+.cta-button:hover:before {
+    transform: translate(-50%, -50%) scale(1); /* Expande o efeito ao passar o mouse */
+}
+
+.cta-button:hover {
+    color: #fff; /* Muda a cor do texto ao passar o mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente o botão ao passar o mouse */
+    background-color: #333; /* Cor ao passar o mouse */
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Alinha verticalmente em telas menores */
+    }
+    .hero-image img {
+        width: 100%; /* Ajusta a largura da imagem */
+    }
+}
+
+/* Container dos serviços utilizando Grid */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Itens de serviço */
+.service-item {
+    position: relative; /* Adicionado para o efeito de barra superior */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Container do ícone do serviço */
+.service-icon-container {
+    background-color: #F5FF7D;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+}
+
+/* Efeito ao passar o mouse no ícone do serviço */
+.service-item:hover .service-icon-container {
+    background-color: #D0E02A;
+}
+
+/* Título e descrição do serviço */
+.service-item h2,
+.service-item p {
+    margin: 10px 0;
+    background-color: #fff;
+    padding: 0;
+}
+
+/* Efeito de hover nos itens de serviço */
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ícone do serviço */
+.service-icon {
+    width: 50px;
+}
+
+/* Descrição do serviço */
+.service-item p {
+    font-size: 1em;
+    color: #666;
+    margin-top: auto; /* Empurra a descrição para o fim do espaço disponível */
+}
+
+/* Botão com margem */
+a.service-button {
+    margin-top: 20px; /* Margem no botão */
+}
+
+/* Barra superior de cor ao passar o mouse (hover) */
+.service-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #F5FF7D;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.service-item:hover::before {
+    opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .service-item {
+        padding: 15px;
+        height: auto; /* Permite altura variável em telas menores */
+    }
+    .service-icon {
+        width: 40px; /* Ajusta o tamanho do ícone em telas menores */
+    }
+    .service-item:last-child {
+        height: auto; /* Para o último item ser responsivo também */
+    }
+}
+
+/* Seção Sobre Nós */
+.about-us-section {
+    margin: 4rem 0;
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.about-us-section h1,
+.about-us-section h2,
+.about-us-section p {
+    max-width: 700px;
+    margin: 0 auto; /* Centraliza os elementos dentro da seção */
+}
+
+/* Formulário */
+.contact-form-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-direction: column; /* Coloca os itens em coluna */
+    width: 100%; /* Largura total da tela */
+    margin-top: 10rem; /* Margem superior */
+}
+
+/* Estilo do formulário */
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Coloca os campos em coluna */
+    gap: 15px; /* Espaçamento entre os campos */
+    width: 70%; /* Largura do formulário */
+    padding: 0 10px; /* Espaçamento lateral dentro do formulário */
+}
+
+/* Estilo dos campos de entrada */
+.contact-form input, 
+.contact-form select, 
+.contact-form textarea {
+    width: 100%; /* Faz os campos ocupar 100% da largura do formulário */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+/* Efeitos de foco nos campos */
+.contact-form input:focus, 
+.contact-form select:focus, 
+.contact-form textarea:focus {
+    border-color: #F5FF7D; /* Cor do contorno ao focar */
+    outline: none; /* Remove o contorno padrão */
+    box-shadow: 0 0 5px rgba(245, 255, 125, 0.5); /* Sombra ao focar */
+}
+
+/* Estilo do botão do formulário */
+.contact-form button {
+    padding: 12px 20px; /* Espaçamento do botão */
+    background-color: #F5FF7D; /* Cor de fundo */
+    border: none; /* Remove borda padrão */
+    border-radius: 8px; /* Bordas arredondadas */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transições suaves */
+}
+
+/* Efeito de explosão no botão */
+.contact-form button:hover {
+    transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
+    background-color: #D0E02A; /* Muda a cor ao passar o mouse */
+}
+
+/* Efeito de brilho ao passar o mouse sobre os campos */
+.contact-form input:hover, 
+.contact-form select:hover, 
+.contact-form textarea:hover {
+    box-shadow: 0 0 8px 2px rgba(245, 255, 125, 0.8); /* Brilho suave em amarelo */
+    transition: box-shadow 0.3s ease; /* Suaviza a transição do efeito */
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-form {
+        width: 90%; /* Largura do formulário em telas menores */
+    }
+
+    .about-us-section h1,
+    .about-us-section h2,
+    .about-us-section p {
+        font-size: 1.2rem; /* Ajusta o tamanho da fonte em telas menores */
+    }
+}
+
+/* Seção Sobre Nós */
+.about-us-section {
+    margin: 4rem 0;
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 2px solid #f0f0f0;
+    display: flex; /* Mudança de grid para flex */
+    flex-direction: column; /* Alinha os itens verticalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+.about-us-section h1,
+.about-us-section h2,
+.about-us-section p {
+    max-width: 700px; /* Define um limite máximo para o texto */
+    width: 100%; /* Garante que o texto ocupe toda a largura disponível */
+    margin: 0 auto; /* Centraliza os textos */
+}
+
+.about-us-section h1 {
+    font-size: 2.5em; /* Tamanho do título principal */
+    margin-bottom: 1rem; /* Espaçamento inferior */
+    font-family: 'PP Rader', sans-serif; /* Fonte personalizada */
+}
+
+.about-us-section h2 {
+    font-size: 2em; /* Tamanho do subtítulo */
+    margin-bottom: 1rem; /* Espaçamento inferior */
+    font-family: 'Source Sans Pro', sans-serif; /* Fonte padrão */
+}
+
+.about-us-section p {
+    font-size: 1.2em; /* Tamanho do parágrafo */
+    line-height: 1.6; /* Espaçamento entre linhas */
+    color: #666; /* Cor do texto */
+}
+/* Container principal da galeria */
+.masonry-gallery {
+    padding: 40px 0; /* Ajuste de espaçamento */
+    text-align: center;
+}
+
+/* Título da galeria */
+.masonry-gallery h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Grid para a galeria de alvenaria */
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste de colunas dinâmico */
+    gap: 15px; /* Menos espaço entre os itens */
+}
+
+/* Itens individuais da galeria */
+.masonry-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px; /* Cantos arredondados */
+}
+
+/* Imagens da galeria */
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+    border-radius: 12px; /* Aplica o arredondamento também às imagens */
+}
+
+/* Efeito ao passar o mouse sobre as imagens */
+.masonry-item:hover img {
+    transform: scale(1.05); /* Efeito de leve aumento */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave ao passar o mouse */
+}
+
+
+
+/* Estilos Responsivos para a seção Sobre Nós */
+@media (max-width: 768px) {
+    .team-member {
+        max-width: 100%; /* Permite que o cartão ocupe 100% em telas menores */
+    }
+
+    .about-us-section h1 {
+        font-size: 2em; /* Reduz o tamanho do título principal */
+    }
+
+    .about-us-section h2 {
+        font-size: 1.5em; /* Reduz o tamanho do subtítulo */
+    }
+
+    .about-us-section p {
+        font-size: 1em; /* Reduz o tamanho do parágrafo */
+    }
+}
+
+
+/* Centraliza tudo na seção de contato */
+.contact-info {
+    display: flex;
+    flex-direction: column; /* Coloca os elementos em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    padding: 20px;
+}
+
+/* Estilo para cada bloco de informação de contato */
+.contact-info div {
+    width: 100%; /* Ocupa toda a largura */
+    max-width: 400px; /* Define uma largura máxima */
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centraliza o texto dentro dos blocos */
+}
+
+/* Estilo para o botão pequeno */
+.contact-info button {
+    margin-top: 20px; /* Espaçamento em cima do botão */
+    padding: 10px 20px; /* Define o tamanho do botão */
+    background-color: #F5FF7D;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no botão */
+.contact-info button:hover {
+    background-color: #D0E02A;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .contact-info {
+        padding: 10px;
+    }
+
+    .contact-info div {
+        width: 90%; /* Faz os blocos ocuparem quase toda a largura da tela */
+    }
+
+    .contact-info button {
+        width: 50%; /* Reduz a largura do botão em telas menores */
+    }
+}
+
