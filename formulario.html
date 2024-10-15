@@ -64,7 +64,7 @@
         <section style="text-align: center;" class="contact-form-section">
             <h1>Solicitação de Manutenção</h1>
             <div class="contact-form-container">
-                <form id="maintenanceForm" class="contact-form" action="https://hook.us2.make.com/wika3d9y84ux3auhg4irt4pnekmufhts" method="POST">
+                <form id="maintenanceForm" class="contact-form" method="POST">
                     <label for="name"></label>
                     <input type="text" id="name" name="name" required placeholder="Seu nome completo">
                     
@@ -100,10 +100,10 @@
         document.getElementById("phone").addEventListener("input", function(event) {
             let input = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
 
-            // Verifica se o número tem entre 11 e 15 dígitos (DDD + 9 dígitos)
+            // Formatação do número de telefone
             if (input.length > 10) {
                 input = input.replace(/^(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4');
-            } else if (input.length > 5) { // Caso tenha menos que 10 dígitos
+            } else if (input.length > 5) {
                 input = input.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
             } else if (input.length > 2) {
                 input = input.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
@@ -120,7 +120,7 @@
 
             var formData = new FormData(this);
 
-            fetch("https://hook.us2.make.com/wika3d9y84ux3auhg4irt4pnekmufhts", {
+            fetch("hfvs1yp4etxkuw2upjyqwaj5j9hyxvqn@hook.us2.make.com", {
                 method: "POST",
                 body: formData
             })
@@ -131,9 +131,8 @@
                 return response.json(); // Processa a resposta como JSON
             })
             .then(data => {
-                alert(data.message); // Exibe a mensagem de sucesso
-                // Limpar o formulário se necessário
-                this.reset();
+                alert("Formulário enviado com sucesso!"); // Mensagem de sucesso
+                this.reset(); // Limpa o formulário
             })
             .catch(error => {
                 alert("Erro ao enviar o formulário: " + error.message);
