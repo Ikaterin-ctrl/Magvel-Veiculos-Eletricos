@@ -165,6 +165,7 @@ nav a:hover {
 .hero-text h1 {
     font-size: 2.5em; /* Tamanho do título */
     margin: 2rem 0; /* Margem acima e abaixo do título */
+    margin-top: 3rem;
 }
 
 .hero-text p {
@@ -198,6 +199,7 @@ nav a:hover {
     .hero-text h1 {
         font-size: 2em; /* Tamanho reduzido do título no mobile */
         margin: 1.5rem 0; /* Ajuste de margem */
+        margin-top: 3rem;
     }
 
     .hero-text p {
