@@ -192,26 +192,31 @@ nav a:hover {
 
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
-    h1 {
-        margin: 2rem 0; /* Adiciona 2rem de margem acima e abaixo do título */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Alinha os itens ao centro */
+        text-align: center; /* Centraliza o texto */
     }
 
     .hero-image img {
         width: 100%; /* Faz a imagem ocupar a largura total */
         height: auto; /* Mantém a proporção da imagem */
     }
-}
 
+    h1 {
+        margin: 2rem 0; /* Margem acima e abaixo do título */
+    }
 
-@media (max-width: 768px) {
+    p {
+        margin: 1rem 0; /* Margem para o subtítulo */
+    }
+
     .cta-button {
-        display: inline-block;
-        width: auto; /* Mantém o botão inteiro */
-        white-space: nowrap; /* Impede a quebra de linha no texto do botão */
-        text-align: center;
-        padding: 10px 20px; /* Ajuste o padding conforme necessário */
+        margin-top: 1rem; /* Margem acima do botão */
     }
 }
+
 
 
 /*botões*/
