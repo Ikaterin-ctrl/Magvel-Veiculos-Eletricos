@@ -152,30 +152,24 @@ nav a:hover {
     padding: 50px 20px;
     background-color: #fff; /* Fundo branco para o hero */
     text-align: center;
-}
-
-.hero-content {
-    display: grid; /* Usar grid para organizar o conteúdo */
-    grid-template-columns: 1fr 1fr; /* Duas colunas */
-    align-items: center; /* Alinha verticalmente ao centro */
-    gap: 40px; /* Espaço entre as colunas */
-    max-width: 1200px; /* Largura máxima */
-    margin: 0 auto; /* Centraliza o conteúdo */
+    display: flex; /* Usar flexbox para organizar o conteúdo */
+    flex-direction: column; /* Organiza em coluna */
+    align-items: center; /* Alinha os itens ao centro */
 }
 
 .hero-text {
-    text-align: left; /* Alinhar o texto à esquerda */
+    text-align: center; /* Centraliza o texto */
     padding: 20px;
 }
 
 .hero-text h1 {
     font-size: 2.5em; /* Tamanho do título */
-    margin: 0; /* Remove margens padrão */
+    margin: 2rem 0; /* Margem acima e abaixo do título */
 }
 
 .hero-text p {
     font-size: 1.2em; /* Tamanho do parágrafo */
-    margin: 20px 0; /* Margem em cima e embaixo */
+    margin: 1rem 0; /* Margem para o subtítulo */
 }
 
 .hero-image {
@@ -183,41 +177,42 @@ nav a:hover {
 }
 
 .hero-image img {
-    width: 150%; /* Aumentar a largura da imagem do carrinho */
-    max-width: 100%; /* Impedir que a imagem fique maior que o contêiner */
-    height: auto;
+    width: 100%; /* Faz a imagem ocupar a largura total */
+    height: auto; /* Mantém a proporção da imagem */
     border-radius: 20px; /* Arredondamento das bordas da imagem */
     object-fit: cover; /* Garante que a imagem se ajuste corretamente */
+}
+
+.cta-button {
+    margin-top: 1rem; /* Margem acima do botão */
+    width: 100%; /* Botão ocupa toda a largura disponível */
+    padding: 15px; /* Aumenta o padding do botão para maior área de clique */
 }
 
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
     .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Alinha os itens ao centro */
-        text-align: center; /* Centraliza o texto */
+        padding: 30px 10px; /* Ajuste de padding para mobile */
     }
 
-    .hero-image img {
-        width: 100%; /* Faz a imagem ocupar a largura total */
-        height: auto; /* Mantém a proporção da imagem */
+    .hero-text h1 {
+        font-size: 2em; /* Tamanho reduzido do título no mobile */
+        margin: 1.5rem 0; /* Ajuste de margem */
     }
 
-    h1 {
-        margin: 2rem 0; /* Margem acima e abaixo do título */
+    .hero-text p {
+        font-size: 1em; /* Tamanho reduzido do subtítulo no mobile */
+        margin: 0.5rem 0; /* Ajuste de margem */
     }
 
-    p {
-        margin: 1rem 0; /* Margem para o subtítulo */
+    .hero-image {
+        margin-top: 20px; /* Espaço reduzido acima da imagem */
     }
 
     .cta-button {
-        margin-top: 1rem; /* Margem acima do botão */
+        padding: 12px; /* Ajuste de padding do botão */
     }
 }
-
-
 
 /*botões*/
 .cta-button {
