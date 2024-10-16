@@ -125,7 +125,7 @@
               if (!response.ok) {
                   throw new Error('Erro na resposta da rede');
               }
-              return response.json();
+              return response.text(); // Mude para response.text() para lidar com a resposta como texto
           })
           .then(data => {
               console.log(data); // Log para depuração
@@ -146,6 +146,7 @@
       });
   });
 </script>
+
 
 
 
