@@ -74,6 +74,8 @@
             <textarea id="message" name="message" rows="4" required placeholder="Digite sua mensagem aqui..."></textarea>
             <button type="submit" class="cta-button">Enviar</button>
         </form>
+        <div id="feedbackMessage" style="display:none; margin-top: 10px;"></div> <!-- Mensagem de feedback -->
+      </div>
     </div>
 </section>
 
@@ -97,6 +99,8 @@
   document.addEventListener('DOMContentLoaded', function() {
       const phoneInput = document.getElementById('phone');
       maskPhone(phoneInput); // Aplicar a máscara no campo de telefone
+
+      const feedbackMessage = document.getElementById('feedbackMessage');
 
       document.getElementById("maintenanceForm").addEventListener("submit", function(event) {
           event.preventDefault(); // Impede o envio padrão do formulário
@@ -124,15 +128,19 @@
               return response.json(); // Tenta converter a resposta em JSON
           })
           .then(data => {
-              // Aqui você pode fazer o que quiser após o envio bem-sucedido
-              console.log("Formulário enviado com sucesso:", data);
+              feedbackMessage.textContent = "Formulário enviado com sucesso!";
+              feedbackMessage.style.color = "green"; // Mensagem de sucesso
+              feedbackMessage.style.display = "block"; // Exibe a mensagem
           })
           .catch(error => {
-              console.error("Erro ao enviar o formulário:", error.message);
+              feedbackMessage.textContent = "Erro ao enviar o formulário: " + error.message;
+              feedbackMessage.style.color = "red"; // Mensagem de erro
+              feedbackMessage.style.display = "block"; // Exibe a mensagem
           });
       });
   });
 </script>
+
 
 
 </body>
