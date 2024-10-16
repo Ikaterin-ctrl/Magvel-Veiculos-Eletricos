@@ -192,19 +192,16 @@ nav a:hover {
 
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
-    .hero {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
+    h1 {
+        margin: 2rem 0; /* Adiciona 2rem de margem acima e abaixo do título */
     }
 
-    .hero-content {
-        width: 100%;
-        padding: 20px; /* Ajuste o padding conforme necessário */
+    .hero-image img {
+        width: 100%; /* Faz a imagem ocupar a largura total */
+        height: auto; /* Mantém a proporção da imagem */
     }
 }
+
 
 @media (max-width: 768px) {
     .cta-button {
