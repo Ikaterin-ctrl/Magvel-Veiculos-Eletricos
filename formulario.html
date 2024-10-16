@@ -114,6 +114,7 @@
               message: formData.get('message')
           };
 
+          // Enviar dados para o Make
           fetch("https://hook.us2.make.com/3wnssofbcaqfpxpdy97q8xrb2lj87f65", { 
               method: "POST",
               body: JSON.stringify(jsonData),
@@ -123,12 +124,30 @@
           })
           .then(response => {
               if (!response.ok) {
-                  throw new Error('Erro na resposta da rede');
+                  throw new Error('Erro na resposta do Make');
               }
-              return response.text(); // Mude para response.text() para lidar com a resposta como texto
+              return response.text(); // Lida com a resposta como texto
           })
           .then(data => {
-              console.log(data); // Log para depuração
+              console.log('Dados enviados ao Make:', data);
+
+              // Enviar dados para a Lambda
+              return fetch("https://7vxvwzkgkpehvu4imjo6tri5ge0gyarh.lambda-url.us-east-1.on.aws/", { 
+                  method: "POST",
+                  body: JSON.stringify(jsonData),
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              });
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Erro na resposta da rede da Lambda');
+              }
+              return response.text();
+          })
+          .then(data => {
+              console.log('Dados enviados à Lambda:', data);
               feedbackMessage.textContent = "Formulário enviado com sucesso!";
               feedbackMessage.style.color = "green"; 
               feedbackMessage.style.display = "block"; 
