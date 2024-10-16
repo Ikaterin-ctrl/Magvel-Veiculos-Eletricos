@@ -125,17 +125,23 @@
               if (!response.ok) {
                   throw new Error('Erro na resposta da rede');
               }
-              return response.json(); // Tenta converter a resposta em JSON
+              return response.json();
           })
           .then(data => {
+              console.log(data); // Log para depuração
               feedbackMessage.textContent = "Formulário enviado com sucesso!";
-              feedbackMessage.style.color = "green"; // Mensagem de sucesso
-              feedbackMessage.style.display = "block"; // Exibe a mensagem
+              feedbackMessage.style.color = "green"; 
+              feedbackMessage.style.display = "block"; 
+
+              // Redirecionar para a página inicial após um pequeno delay
+              setTimeout(() => {
+                  window.location.href = "index.html"; // Substitua pelo URL correto da sua página inicial
+              }, 2000); // 2 segundos de espera antes do redirecionamento
           })
           .catch(error => {
               feedbackMessage.textContent = "Erro ao enviar o formulário: " + error.message;
-              feedbackMessage.style.color = "red"; // Mensagem de erro
-              feedbackMessage.style.display = "block"; // Exibe a mensagem
+              feedbackMessage.style.color = "red"; 
+              feedbackMessage.style.display = "block"; 
           });
       });
   });
