@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/magvel24/public_html/Magvel-Veiculos-Eletricos 
+    - /bin/cp index.html $DEPLOYPATH
