@@ -79,65 +79,61 @@
 
     
 <script>
-    // Função para aplicar máscara de telefone
-    function maskPhone(input) {
-        input.addEventListener('input', function() {
-            let value = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-            if (value.length > 10) {
-                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3'); // Máscara para celular
-            } else if (value.length > 5) {
-                value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3'); // Máscara para telefone fixo
-            } else if (value.length > 2) {
-                value = value.replace(/(\d{2})(\d+)/, '($1) $2'); // Apenas DDD
-            }
-            this.value = value; // Atualiza o valor do campo
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const phoneInput = document.getElementById('phone');
-        maskPhone(phoneInput); // Aplicar a máscara no campo de telefone
-    });
-    document.getElementById("maintenanceForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Impede o envio padrão do formulário
-
-      var formData = new FormData(this);
-      var jsonData = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        service: formData.get('service'),
-        message: formData.get('message')
-      };
-
-      fetch("https://hook.us2.make.com/3wnssofbcaqfpxpdy97q8xrb2lj87f65", { 
-          method: "POST",
-          body: JSON.stringify(jsonData),
-          headers: {
-              'Content-Type': 'application/json'
+  // Função para aplicar máscara de telefone
+  function maskPhone(input) {
+      input.addEventListener('input', function() {
+          let value = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+          if (value.length > 10) {
+              value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3'); // Máscara para celular
+          } else if (value.length > 5) {
+              value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3'); // Máscara para telefone fixo
+          } else if (value.length > 2) {
+              value = value.replace(/(\d{2})(\d+)/, '($1) $2'); // Apenas DDD
           }
-      })
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Erro na resposta da rede');
-          }
-          return response.json(); // Tenta converter a resposta em JSON
-      })
-      .then(data => {
-          // Exibe um alerta ao usuário quando o formulário for enviado com sucesso
-          alert("Formulário enviado com sucesso!");
-          
-          // Opcional: resetar o formulário após o envio
-          document.getElementById("maintenanceForm").reset();
-      })
-      .catch(error => {
-          // Exibe um alerta de erro se o envio falhar
-          alert("Erro ao enviar o formulário: " + error.message);
+          this.value = value; // Atualiza o valor do campo
       });
-    });
+  }
 
-   
+  document.addEventListener('DOMContentLoaded', function() {
+      const phoneInput = document.getElementById('phone');
+      maskPhone(phoneInput); // Aplicar a máscara no campo de telefone
+
+      document.getElementById("maintenanceForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Impede o envio padrão do formulário
+
+          var formData = new FormData(this);
+          var jsonData = {
+              name: formData.get('name'),
+              email: formData.get('email'),
+              phone: formData.get('phone'),
+              service: formData.get('service'),
+              message: formData.get('message')
+          };
+
+          fetch("https://hook.us2.make.com/3wnssofbcaqfpxpdy97q8xrb2lj87f65", { 
+              method: "POST",
+              body: JSON.stringify(jsonData),
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Erro na resposta da rede');
+              }
+              return response.json(); // Tenta converter a resposta em JSON
+          })
+          .then(data => {
+              // Aqui você pode fazer o que quiser após o envio bem-sucedido
+              console.log("Formulário enviado com sucesso:", data);
+          })
+          .catch(error => {
+              console.error("Erro ao enviar o formulário:", error.message);
+          });
+      });
+  });
 </script>
+
 
 </body>
 </html>
