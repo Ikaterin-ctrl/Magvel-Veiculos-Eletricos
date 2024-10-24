@@ -145,6 +145,58 @@
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector('.contact-form');
+    const fields = document.querySelectorAll('.form-field');
+    let currentFieldIndex = 0;
+
+    // Simula o carregamento dos campos do formulário
+    const simulateLoading = () => {
+        if (currentFieldIndex < fields.length) {
+            const currentField = fields[currentFieldIndex];
+
+            currentField.classList.add('animate');
+
+            setTimeout(() => {
+                currentField.classList.remove('animate');
+                currentField.classList.add('exit');
+
+                if (currentFieldIndex < fields.length) {
+                    setTimeout(() => {
+                        currentField.classList.add('hide'); // Esconde o campo
+                        currentFieldIndex++;
+                        if (currentFieldIndex < fields.length) {
+                            fields[currentFieldIndex].classList.remove('hide'); // Mostra o próximo campo
+                            simulateLoading(); // Passa para o próximo campo
+                        } else {
+                            setTimeout(() => {
+                                fields.forEach(field => {
+                                    field.classList.add('hide'); // Esconde todos os campos
+                                });
+                                currentFieldIndex = 0;
+                                window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para cima
+                                alert('Formulário enviado com sucesso!'); // Feedback ao usuário
+                                form.reset(); // Limpa o formulário após o envio
+                            }, 300); // Tempo para ocultar
+                        }
+                    }, 300); // Tempo da animação de saída reduzido
+                }
+            }, 700); // Tempo total que a animação dura
+        }
+    };
+
+    // Envio do formulário
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault(); // Previne o comportamento padrão de envio
+
+        // Inicia a simulação de loading
+        simulateLoading();
+        
+        // Adicione aqui a lógica para enviar o formulário, conforme necessário.
+    });
+});
+
 </script>
     
 </body>
