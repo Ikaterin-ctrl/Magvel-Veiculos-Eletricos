@@ -80,90 +80,88 @@
 </section>
 
 <script>
-  // Função para aplicar máscara de telefone
-  function maskPhone(input) {
-      input.addEventListener('input', function() {
-          let value = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-          if (value.length > 10) {
-              value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3'); // Máscara para celular
-          } else if (value.length > 5) {
-              value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3'); // Máscara para telefone fixo
-          } else if (value.length > 2) {
-              value = value.replace(/(\d{2})(\d+)/, '($1) $2'); // Apenas DDD
-          }
-          this.value = value; // Atualiza o valor do campo
-      });
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-      const phoneInput = document.getElementById('phone');
-      maskPhone(phoneInput); // Aplicar a máscara no campo de telefone
-
-      const feedbackMessage = document.getElementById('feedbackMessage');
-
-      document.getElementById("maintenanceForm").addEventListener("submit", function(event) {
-          event.preventDefault(); // Impede o envio padrão do formulário
-
-          var formData = new FormData(this);
-          var jsonData = {
-              name: formData.get('name'),
-              email: formData.get('email'),
-              phone: formData.get('phone'),
-              service: formData.get('service'),
-              message: formData.get('message')
-          };
-
-          // Enviar dados para o Make
-          fetch("https://hook.us2.make.com/3wnssofbcaqfpxpdy97q8xrb2lj87f65", { 
-              method: "POST",
-              body: JSON.stringify(jsonData),
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          })
-          .then(response => {
-              if (!response.ok) {
-                  throw new Error('Erro na resposta do Make');
-              }
-              return response.text(); // Lida com a resposta como texto
-          })
-          .then(data => {
-              console.log('Dados enviados ao Make:', data);
-
-              // Enviar dados para a Lambda
-              return fetch("https://xl4f39xkw6.execute-api.us-east-1.amazonaws.com/dev", { // Use sua URL da Lambda
-                  method: "POST",
-                  body: JSON.stringify(jsonData),
-                  headers: {
-                      'Content-Type': 'application/json'
-                  }
-              });
-          })
-          .then(response => {
-              if (!response.ok) {
-                  throw new Error('Erro na resposta da rede da Lambda');
-              }
-              return response.text();
-          })
-          .then(data => {
-              console.log('Dados enviados à Lambda:', data);
-              feedbackMessage.textContent = "Formulário enviado com sucesso!";
-              feedbackMessage.style.color = "green"; 
-              feedbackMessage.style.display = "block"; 
-
-              // Redirecionar para a página inicial após um pequeno delay
-              setTimeout(() => {
-                  window.location.href = "index.html"; // Substitua pelo URL correto da sua página inicial
-              }, 2000); // 2 segundos de espera antes do redirecionamento
-          })
-          .catch(error => {
-              feedbackMessage.textContent = "Erro ao enviar o formulário: " + error.message;
-              feedbackMessage.style.color = "red"; 
-              feedbackMessage.style.display = "block"; 
-          });
-      });
-  });
-</script>
-
-</body>
-</html>
+    // Função para aplicar máscara de telefone
+    function maskPhone(input) {
+        input.addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            if (value.length > 10) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3'); // Máscara para celular
+            } else if (value.length > 5) {
+                value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3'); // Máscara para telefone fixo
+            } else if (value.length > 2) {
+                value = value.replace(/(\d{2})(\d+)/, '($1) $2'); // Apenas DDD
+            }
+            this.value = value; // Atualiza o valor do campo
+        });
+    }
+  
+    document.addEventListener('DOMContentLoaded', function() {
+        const phoneInput = document.getElementById('phone');
+        maskPhone(phoneInput); // Aplicar a máscara no campo de telefone
+  
+        const feedbackMessage = document.getElementById('feedbackMessage');
+  
+        document.getElementById("maintenanceForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+  
+            var formData = new FormData(this);
+            var jsonData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                service: formData.get('service'),
+                message: formData.get('message')
+            };
+  
+            // Enviar dados para o Make
+            fetch("https://hook.us2.make.com/3wnssofbcaqfpxpdy97q8xrb2lj87f65", { 
+                method: "POST",
+                body: JSON.stringify(jsonData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na resposta do Make');
+                }
+                return response.text(); // Lida com a resposta como texto
+            })
+            .then(data => {
+                console.log('Dados enviados ao Make:', data);
+  
+                // Enviar dados para a Lambda
+                return fetch("https://xl4f39xkw6.execute-api.us-east-1.amazonaws.com/dev", { // Use sua URL da Lambda
+                    method: "POST",
+                    body: JSON.stringify(jsonData),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na resposta da rede da Lambda');
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('Dados enviados à Lambda:', data);
+                feedbackMessage.textContent = "Formulário enviado com sucesso!";
+                feedbackMessage.style.color = "green"; 
+                feedbackMessage.style.display = "block"; 
+  
+                // Redirecionar para a página inicial após um pequeno delay
+                setTimeout(() => {
+                    window.location.href = "index.html"; // Substitua pelo URL correto da sua página inicial
+                }, 2000); // 2 segundos de espera antes do redirecionamento
+            })
+            .catch(error => {
+                feedbackMessage.textContent = "Erro ao enviar o formulário: " + error.message;
+                feedbackMessage.style.color = "red"; 
+                feedbackMessage.style.display = "block"; 
+            });
+        });
+    });
+  </script>
+  
