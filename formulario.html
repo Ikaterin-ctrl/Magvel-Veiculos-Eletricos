@@ -56,7 +56,7 @@
 
   <section class="contact-form-section">
     <div class="contact-form-container">
-        <form id="maintenanceForm" class="contact-form" method="POST" action="process_form.php">
+        <form id="maintenanceForm" class="contact-form">
             <input type="text" id="name" name="name" required placeholder="Seu nome completo">
             <input type="email" id="email" name="email" required placeholder="Seu e-mail">
             <input type="tel" id="phone" name="phone" required placeholder="Seu telefone" maxlength="15">
@@ -131,7 +131,7 @@
               console.log('Dados enviados ao Make:', data);
 
               // Enviar dados para a Lambda
-              return fetch("https://7vxvwzkgkpehvu4imjo6tri5ge0gyarh.lambda-url.us-east-1.on.aws/", { 
+              return fetch("https://xl4f39xkw6.execute-api.us-east-1.amazonaws.com/dev", { // Use sua URL da Lambda
                   method: "POST",
                   body: JSON.stringify(jsonData),
                   headers: {
@@ -164,10 +164,6 @@
       });
   });
 </script>
-
-</body>
-</html>
-
 
 </body>
 </html>
