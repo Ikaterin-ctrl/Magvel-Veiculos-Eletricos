@@ -79,7 +79,6 @@
     </div>
 </section>
 
-    
 <script>
   // Função para aplicar máscara de telefone
   function maskPhone(input) {
@@ -164,21 +163,10 @@
           });
       });
   });
-
-  fetch('https://7vxvwzkgkpehvu4imjo6tri5ge0gyarh.lambda-url.us-east-1.on.aws/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ name: 'John', age: 30 }),
-  })
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Erro ao enviar o formulário:', error));
-
 </script>
 
-
+</body>
+</html>
 
 
 </body>
