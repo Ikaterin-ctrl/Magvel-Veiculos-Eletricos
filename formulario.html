@@ -113,31 +113,13 @@
                 message: formData.get('message')
             };
   
-            // Enviar dados para o Make
-            fetch("https://hook.us2.make.com/3wnssofbcaqfpxpdy97q8xrb2lj87f65", { 
+            // Enviar dados para a Lambda
+            fetch("https://xl4f39xkw6.execute-api.us-east-1.amazonaws.com/dev", { // Use sua URL da Lambda
                 method: "POST",
                 body: JSON.stringify(jsonData),
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro na resposta do Make');
-                }
-                return response.text(); // Lida com a resposta como texto
-            })
-            .then(data => {
-                console.log('Dados enviados ao Make:', data);
-  
-                // Enviar dados para a Lambda
-                return fetch("https://xl4f39xkw6.execute-api.us-east-1.amazonaws.com/dev", { // Use sua URL da Lambda
-                    method: "POST",
-                    body: JSON.stringify(jsonData),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
             })
             .then(response => {
                 if (!response.ok) {
@@ -163,5 +145,6 @@
             });
         });
     });
-  </script>
-  
+</script>
+    
+</body>
