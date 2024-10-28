@@ -263,11 +263,10 @@ nav a:hover {
         width: 100%; /* Ajusta a largura da imagem */
     }
 }
-
 /* Container dos serviços utilizando Grid */
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas que se ajustam automaticamente */
     gap: 20px;
     padding: 20px;
 }
@@ -350,6 +349,9 @@ a.service-button {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    .services {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas menores */
+    }
     .service-item {
         padding: 15px;
         height: auto; /* Permite altura variável em telas menores */
@@ -364,18 +366,45 @@ a.service-button {
 
 /* Seção Sobre Nós */
 .about-us-section {
-    margin: 4rem 0;
-    text-align: center;
-    padding: 2rem 0;
-    border-bottom: 2px solid #f0f0f0;
+    margin-top: 8rem; /* Margem em cima */
+    text-align: center; /* Centraliza o texto */
 }
 
+/* Títulos da seção Sobre Nós */
 .about-us-section h1,
-.about-us-section h2,
-.about-us-section p {
-    max-width: 700px;
-    margin: 0 auto; /* Centraliza os elementos dentro da seção */
+.about-us-section h2 {
+    color: #000; /* Cor preta para o texto */
+    text-shadow: 
+        0 0 5px rgba(245, 255, 125, 0.8), /* Esfumado verde ao redor */
+        0 0 10px rgba(245, 255, 125, 0.5); /* Esfumado verde mais forte */
+    margin-bottom: 1rem; /* Espaço abaixo dos títulos */
 }
+
+
+/* Container dos textos */
+.about-us-content {
+    display: grid; /* Usa Grid para o layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Duas colunas responsivas */
+    gap: 30px; /* Aumenta o espaçamento entre os quadrados */
+    margin-top: 2rem; /* Margem acima */
+}
+
+/* Estilo individual de cada texto */
+.about-us-section p {
+    border: 1px solid #F5FF7D; /* Borda verde */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 1rem; /* Padding interno */
+    background-color: rgba(245, 255, 125, 0.1); /* Fundo leve #F5FF7D */
+    transition: transform 0.3s, background-color 0.3s; /* Transição suave */
+    cursor: pointer; /* Indica que pode ser clicável */
+}
+
+/* Efeito ao passar o mouse sobre os textos */
+.about-us-section p:hover {
+    transform: translateY(-10px); /* Eleva o quadrado ao passar o mouse */
+    background-color: rgba(245, 255, 125, 0.3); /* Escurece o fundo ao passar o mouse */
+}
+
 
 /* Formulário */
 .contact-form-container {

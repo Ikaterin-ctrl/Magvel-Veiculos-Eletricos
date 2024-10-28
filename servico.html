@@ -40,6 +40,40 @@
                 height: 200px;
             }
         }
+
+        /* Estilos para a galeria */
+        .masonry-gallery {
+            margin: 4rem 0;
+        }
+
+        .masonry-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .masonry-item {
+            flex: 1 1 calc(33.333% - 1rem); /* 3 itens por linha, com espaço */
+            box-sizing: border-box;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px; /* Arredonda as bordas das imagens */
+        }
+
+        @media (max-width: 768px) {
+            .masonry-item {
+                flex: 1 1 calc(50% - 1rem); /* 2 itens por linha em telas menores */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .masonry-item {
+                flex: 1 1 100%; /* 1 item por linha em telas muito pequenas */
+            }
+        }
     </style>
 
     <!-- Jivochat Widget -->
@@ -67,11 +101,10 @@
 <body>
     <header>
         <div class="logo">
-            <img src="./imagens/Logos/logo_verde.png" alt="Logo">
-        </div>
-        <div class="cta-buttons">
-            <a href="servico.html" class="cta-button">Explore Nossos Serviços</a>
-        </div>
+            <a href="index.html">
+                <img src="./imagens/Logos/logo_verde.png" alt="Logo">
+            </a>
+        </div>    
         <div class="menu-toggle" id="menuToggle">
             <div></div>
             <div></div>
@@ -79,13 +112,12 @@
         </div>
         <nav class="navbar" id="navbar">
             <a href="index.html">Home</a>
-            <a href="servico.html">Serviços</a>
-            <a href="sobre_nos.html">Sobre Nós</a>
+            <a href="servico.html">Serviços</a>      
             <a href="contato.html">Contato</a>
         </nav>
     </header>
 
-    <div  style="text-align: center;" class="hero_servicos">
+    <div style="text-align: center;" class="hero_servicos">
         <div class="hero-text_servicos">
             <h1>Conheça Nossos Serviços</h1>
             <p id="subtitulo">Oferecemos uma gama completa de serviços para garantir a máxima performance e segurança dos seus veículos elétricos.</p>
@@ -148,7 +180,7 @@
             </a>
             <p>Serviço de troca de pneus no local para maior conveniência e rapidez.</p>
         </div>
-        
+
         <div class="service-item">
             <a href="formulario.html" class="service-button">
                 <img src="./imagens/Icons/fomulario.gif" alt="Troca de Pneus de Veículo Elétrico no Local" class="service-icon">
@@ -156,10 +188,38 @@
             </a>
             <p>Entre em contato agora para uma manutenção especializada e assegure uma condução eficiente e segura.</p>
         </div>
-
-               
     </main>
 
-    <script src="script.js"></script>  
+    <!-- Seção Sobre Nós Consolidada -->
+    <section style="margin-top: 8rem; text-align: center;" class="about-us-section">
+        <h1>Sobre a Magvel</h1>
+        <p>A Magvel presta serviços com excelência há mais de 10 anos, mantendo uma tradição de qualidade e cuidado em cada detalhe. <br> Nossa missão é oferecer manutenção superior e personalizada para carrinhos de golfe e veículos elétricos, garantindo a satisfação e a confiança de nossos clientes.</p>
+
+        <h2>Nossa História</h2>
+        <p>Fundada por Marco Antonio e Flávio Henrique, a Magvel nasceu com o objetivo de se tornar referência em manutenção de veículos elétricos. Com vasta experiência e paixão pelo que fazem, nossos cofundadores estão envolvidos em cada etapa do processo, assegurando que cada serviço prestado esteja à altura das expectativas de nossos clientes.</p>
+    </section>
+
+    <!-- Galeria de Imagens em Alvenaria -->
+    <section id="masonry-gallery" class="masonry-gallery">
+        <div class="container">
+            <h2>Galeria de Manutenções</h2>
+            <div class="masonry-grid">
+                <div class="masonry-item">
+                    <img src="./imagens/Blog/1.png" alt="Imagem de Manutenção 1">
+                </div>
+                <div class="masonry-item">
+                    <img src="./imagens/Blog/2.png" alt="Imagem de Manutenção 2">
+                </div>
+                <div class="masonry-item">
+                    <img src="./imagens/Blog/3.png" alt="Imagem de Manutenção 3">
+                </div>
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+        </div>
+    </section>
+     
+
+    <script src="script.js"></script>
 </body>
 </html>
+
