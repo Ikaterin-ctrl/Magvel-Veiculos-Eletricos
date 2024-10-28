@@ -173,15 +173,16 @@ nav a:hover {
     margin: 1rem 0; /* Margem para o subtítulo */
 }
 
-.hero-image {
-    margin-top: 40px; /* Espaço extra acima da imagem do carrinho */
+.hero {
+    padding: 30px 10px; /* Reduz o padding para economizar espaço */
 }
 
 .hero-image img {
-    width: 100%; /* Faz a imagem ocupar a largura total */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 20px; /* Arredondamento das bordas da imagem */
-    object-fit: cover; /* Garante que a imagem se ajuste corretamente */
+    width: 80%; /* Reduz a largura da imagem para 80% da largura da coluna */
+    max-width: 400px; /* Define uma largura máxima para garantir que a imagem não fique muito grande */
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
 .cta-button {
