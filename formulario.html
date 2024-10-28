@@ -11,6 +11,164 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+  <style>
+  
+/* Estilos Globais */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    box-sizing: border-box; /* Para incluir padding e borda */
+}
+
+/* Estilo da Seção do Formulário */
+.contact-form-section {
+    margin-top: 10rem;
+    background-color: #f9f9f9; /* Cor de fundo leve */
+    padding: 40px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.contact-form-section h2 {
+    font-size: 2.5em; /* Tamanho do título */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Estilos dos Campos de Entrada */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+
+    width: 80%; /* Ajustada para 80% da largura do formulário */
+    padding: 10px; /* Espaçamento interno */
+    margin: 20px 0; /* Espaçamento entre os campos */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: rgba(245, 255, 125, 0.5); /* Fundo transparente */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+/* Efeitos de Foco */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: rgba(245, 255, 125, 0.8); /* Borda verde mais suave ao focar */
+    box-shadow: 0 0 10px rgba(245, 255, 125, 0.5); /* Efeito de brilho ao focar */
+}
+
+/* Efeitos de Hover nos Campos */
+.contact-form input:hover,
+.contact-form select:hover,
+.contact-form textarea:hover {
+    box-shadow: 0 0 8px 2px rgba(245, 255, 125, 0.8); /* Brilho suave em amarelo */
+}
+
+/* Estilos do Botão */
+.contact-form button {
+    padding: 15px 30px; /* Espaçamento interno */
+    background: linear-gradient(145deg, rgba(245, 255, 125, 1) 0%, rgba(245, 255, 125, 0.5) 100%); /* Gradiente do verde */
+    color: #333; /* Cor do texto */
+    border: none; /* Remove borda padrão */
+    border-radius: 25px; /* Bordas arredondadas */
+    font-size: 18px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor em forma de mão */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+/* Efeito de Hover para o Botão de Envio */
+.contact-form button:hover {
+    transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
+    background-color: #D0E02A; /* Muda a cor ao passar o mouse */
+}
+
+/* Estilos para o campo durante o carregamento */
+.form-field.loading {
+    background-color: rgba(245, 255, 125, 0.5); /* Cor de fundo enquanto carrega */
+    animation: loadingEffect 1s forwards; /* Animação de carregamento */
+}
+
+/* Fundo esfumado para o efeito de carregamento */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, rgba(245, 255, 125, 0.5) 80%, rgba(245, 255, 125, 0.8) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    z-index: 999;
+    box-shadow: 0px 0px 50px 20px rgba(245, 255, 125, 0.5); /* Adiciona um leve esfumado nas bordas */
+}
+
+.background.show {
+    opacity: 1;
+}
+
+/* Keyframes de Animação */
+@keyframes loadingEffect {
+    0% {
+        transform: scale(1); /* Tamanho original */
+    }
+    50% {
+        transform: scale(1.05); /* Aumenta levemente */
+    }
+    100% {
+        transform: scale(1); /* Retorna ao tamanho original */
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9); /* Um pouco menor no início */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Retorna ao tamanho original */
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1); /* Tamanho original */
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.9); /* Um pouco menor ao sair */
+    }
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 10px;
+        width: 100%;
+    }
+    input, textarea, button {
+        font-size: 1rem;
+    }
+}
+
+/* Efeito de deslizamento para os campos */
+.form-field {
+    transition: opacity 1s ease; /* Transição suave */
+    opacity: 1; /* Opacidade padrão */
+}
+
+.form-field.hide {
+    opacity: 0; /* Campo invisível quando escondido */
+    pointer-events: none; /* Desabilita a interação com o campo escondido */
+}
+
+.form-field.animate {
+    transform: translateY(-10px); /* Move um pouco para cima */
+}
+
+  </style>
 
   <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +212,7 @@
 
   <section class="contact-form-section">
     <div class="contact-form-container">
+        <h2>Entre em Contato</h2>
         <form id="maintenanceForm" class="contact-form">
             <input type="text" id="name" name="name" required placeholder="Seu nome completo">
             <input type="email" id="email" name="email" required placeholder="Seu e-mail">

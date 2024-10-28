@@ -341,110 +341,43 @@ a.service-button {
     }
 }
 
+
 /* Seção Sobre Nós */
 .about-us-section {
-    margin-top: 8rem;
-    text-align: center;
+    margin-top: 8rem; /* Margem em cima */
+    text-align: center; /* Centraliza o texto */
 }
 
-.about-us-section h1, .about-us-section h2 {
-    color: #000;
-    text-shadow: 
-        0 0 5px rgba(245, 255, 125, 0.8),
-        0 0 10px rgba(245, 255, 125, 0.5);
-    margin-bottom: 1rem;
+/* Títulos da seção Sobre Nós */
+.about-us-section h1,
+.about-us-section h2 {
+    color: black; 
+    margin-bottom: 1rem; /* Espaço abaixo dos títulos */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
 }
 
 /* Container dos textos */
 .about-us-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 2rem;
+    display: grid; /* Usa Grid para o layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Duas colunas responsivas */
+    gap: 30px; /* Aumenta o espaçamento entre os quadrados */
+    margin-top: 2rem; /* Margem acima */
 }
 
 /* Estilo individual de cada texto */
 .about-us-section p {
-    border: 1px solid var(--cor-cta);
-    border-radius: 8px;
-    padding: 10px;
+    border: 1px solid #F5FF7D; /* Borda verde */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 1rem; /* Padding interno */
+    background-color: rgba(245, 255, 125, 0.1); /* Fundo leve #F5FF7D */
+    transition: transform 0.3s, background-color 0.3s; /* Transição suave */
+    cursor: pointer; /* Indica que pode ser clicável */
 }
 
-
-/* Seção de Contato */
-.contact-section {
-    padding: 50px 20px;
-    background-color: #fff;
-    text-align: center; /* Centraliza o texto */
-}
-
-/* Título da Seção */
-.contact-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #000;
-}
-
-/* Descrição */
-.contact-section p {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    color: #666;
-}
-
-/* Formulário de Contato */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza os itens do formulário */
-    gap: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    max-width: 600px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--cor-cta);
-    outline: none;
-}
-
-/* Botão de Envio */
-.contact-form button {
-    padding: 15px 20px;
-    background-color: var(--cor-cta);
-    color: #333;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.contact-form button:hover {
-    background-color: #333;
-    color: #fff;
-}
-
-/* Mapa */
-.map-container {
-    margin-top: 30px;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
+/* Efeito ao passar o mouse sobre os textos */
+.about-us-section p:hover {
+    transform: translateY(-10px); /* Eleva o quadrado ao passar o mouse */
+    background-color: rgba(245, 255, 125, 0.3); /* Escurece o fundo ao passar o mouse */
 }
 
 /* Informações de Contato */
@@ -475,4 +408,55 @@ a.service-button {
     .contact-info {
         align-items: center; /* Mantém a centralização em telas menores */
     }
+}
+
+/* Seção de Contato */
+.contact-section {
+    padding: 50px 20px;
+    background-color: var(--cor-fundo);
+    text-align: center;
+}
+
+.contact-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--cor-texto);
+}
+
+.contact-section p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Mapa */
+.map-container {
+    width: 300px; /* Definindo a largura do mapa */
+    height: 300px; /* Definindo a altura do mapa para ser quadrado */
+    margin: 0 auto; /* Centraliza o mapa */
+    border-radius: 10px; /* Bordas arredondadas */
+    overflow: hidden; /* Para garantir que o conteúdo do mapa não transborde */
+}
+
+
+/* Estilo para os botões do WhatsApp usando IDs */
+#whatsapp-flavio, #whatsapp-marco {
+    display: inline-block; /* Exibir como bloco em linha */
+    padding: 6px 16px; /* Aumentar padding para um pouco mais de altura e largura */
+    background-color: #F5FF7D; /* Cor do botão */
+    color: #333; /* Cor do texto */
+    border: none; /* Sem borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 0.9rem; /* Tamanho da fonte ligeiramente maior */
+    cursor: pointer; /* Mudar o cursor ao passar o mouse */
+    transition: background-color 0.3s, color 0.3s; /* Transição de cores */
+    max-width: 180px; /* Aumentar a largura máxima para o botão */
+    text-align: center; /* Centraliza o texto dentro do botão */
+    margin-top: 4px; /* Aumentar margem superior para um leve espaço acima */
+}
+
+/* Efeito de hover */
+#whatsapp-flavio:hover, #whatsapp-marco:hover {
+    background-color: #333; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
 }
