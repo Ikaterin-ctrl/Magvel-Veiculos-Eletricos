@@ -1,462 +1,348 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Variáveis de Cores */
+/* Reset e cores principais */
 :root {
-    --cor-fundo: #F5F5F5;
-    --cor-texto: #333;
-    --cor-link: #007BFF;
-    --cor-link-hover: #0056b3;
-    --cor-cta: #F5FF7D; /* Verde limão */
-    --cor-cta-hover: #333;
+    --primary-color: #F5FF7D; /* Verde limão */
+    --secondary-color: #333; /* Cinza escuro */
+    --light-bg: #f9f9f9; /* Fundo claro */
+    --dark-bg: #1e1e1e; /* Fundo escuro */
+    --light-text: #333; /* Texto claro */
+    --dark-text: #f1f1f1; /* Texto escuro */
 }
 
-/* Geral */
+/* Estilos globais */
 body {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: var(--cor-texto);
-    background-color: var(--cor-fundo);
+    font-family: 'Poppins', sans-serif; /* Tipografia moderna */
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0; /* Remove margem padrão */
 }
 
-/* Títulos */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'PP Rader', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin: 8rem 0 0; /* Utiliza margin-top */
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1.3;
-}
-
-/* Corpo da página */
-p {
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* Links */
-a {
-    text-decoration: none;
-    color: var(--cor-link);
-}
-
-a:hover {
-    color: var(--cor-link-hover);
-}
 
 /* Header */
 header {
-    background: #FFF;
-    padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 30px;
-    position: fixed;
-    width: calc(100% - 40px);
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-    margin-bottom: 20px; /* Ajuste aqui para a margem inferior do header */
-}
-
-.logo img {
-    height: 40px;
-}
-
-/* Navegação */
-nav {
-    display: flex;
-    gap: 15px;
-}
-
-nav a {
-    display: inline-block;
-    color: var(--cor-texto);
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 25px;
-    background-color: #FFF;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: var(--cor-cta);
-    color: var(--cor-texto);
-}
-
-/* Estilo do menu no desktop e mobile */
-.navbar {
-    display: flex;
-    gap: 15px;
-}
-
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.menu-toggle div {
-    width: 25px;
-    height: 3px;
-    background-color: #000;
-}
-
-/* Adicionando margem superior e inferior aos títulos */
-h1, h2, h3 {
-    margin-top: 1.5rem;  /* Ajuste a distância conforme necessário */
-    margin-bottom: 1.5rem; /* Mantendo a margem inferior para consistência */
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        background-color: #fff;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        padding: 15px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .navbar.active {
-        display: flex;
-    }
-}
-
-/* Estilo do herói */
-.hero {
-    padding: 40px 10px; /* Aumentado para dar mais espaço */
-    background-color: #fff;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.hero-text {
-    margin-top: 5rem;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Ajuste no título para adicionar padding entre o título e o cabeçalho */
-.hero-text h1 {
-    font-size: 2.5em;
-    margin: 2rem 0; /* Ajustado para reduzir espaço acima */
-    margin-top: 5rem; /* Adicionando espaço entre o título e o cabeçalho */
-}
-
-.hero-text p {
-    font-size: 1.2em;
-    margin: 1rem 0;
-}
-
-.hero-image img {
-    width: 80%; 
-    max-width: 400px;
-    height: auto;
-    border-radius: 20px;
-    object-fit: cover;
-}
-
-.cta-button {
-    margin-top: 2rem; /* Aumentado para dar mais espaço em relação aos outros elementos */
-    width: 100%;
-    padding: 15px;
-    background-color: var(--cor-cta);
-    color: #333;
-    border-radius: 20px;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-/* Efeito do botão */
-.cta-button:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.5s ease;
-    z-index: 0;
-}
-
-.cta-button:hover:before {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.cta-button:hover {
-    color: #fff;
-    transform: scale(1.05);
-    background-color: #333;
-}
-
-/* Ajuste para evitar rolagem desnecessária */
-@media (max-width: 768px) {
-    .hero {
-        padding: 20px 10px; /* Ajustes para dispositivos móveis */
-    }
-
-    .hero-image img {
-        max-width: 100%; /* Garante que a imagem ocupe a largura total no celular */
-    }
-}
-
-/* Media Queries para responsividade */
-@media (max-width: 768px) {
-    .hero-text h1 {
-        font-size: 2em;
-        margin: 1.5rem 0;
-    }
-
-    .hero-text p {
-        font-size: 1em;
-        margin: 0.5rem 0;
-    }
-
-    .cta-button {
-        padding: 12px;
-    }
-}
-
-
-/* Container dos serviços utilizando Grid */
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Itens de serviço */
-.service-item {
-    position: relative;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Container do ícone do serviço */
-.service-icon-container {
-    background-color: var(--cor-cta);
-    padding: 10px;
-    border-radius: 8px;
+    padding: 15px 30px;
+    background-color: #f7f7f7; /* Cor de fundo do cabeçalho */
     transition: background-color 0.3s;
-    margin-bottom: 15px;
-}
-
-/* Efeito ao passar o mouse no ícone do serviço */
-.service-item:hover .service-icon-container {
-    background-color: #D0E02A;
-}
-
-/* Título e descrição do serviço */
-.service-item h2, .service-item p {
-    margin: 10px 0;
-}
-
-.service-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Ícone do serviço */
-.service-icon {
-    width: 50px;
-}
-
-/* Descrição do serviço */
-.service-item p {
-    font-size: 1em;
-    color: #666;
-    margin-top: auto;
-}
-
-/* Botão com margem */
-a.service-button {
-    margin-top: 20px;
-}
-
-/* Barra superior de cor ao passar o mouse (hover) */
-.service-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background-color: var(--cor-cta);
-    transition: all 0.3s ease;
-    opacity: 0;
-}
-
-.service-item:hover::before {
-    opacity: 1;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .services {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .service-icon {
-        width: 40px;
-    }
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    border-radius: 15px; /* Bordas arredondadas */
 }
 
 
-/* Seção Sobre Nós */
-.about-us-section {
-    margin-top: 8rem; /* Margem em cima */
+
+.logo {
+    height: 50px;
+}
+
+/* Estilos do Botão */
+.contact-buttons .btn {
+    display: inline-block; /* Torna o botão um bloco em linha */
+    padding: 15px 30px; /* Preenchimento interno do botão */
+    background-color: #F5FF7D; /* Cor de fundo do botão */
+    color: #333; /* Cor do texto */
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    font-size: 18px; /* Tamanho da fonte do botão */
+    text-decoration: none; /* Remove o sublinhado do link */
+    border: 2px solid #000; /* Contorno preto */
+    border-radius: 25px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra no botão */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para hover */
+    margin: 5px; /* Margem uniforme entre botões */
+}
+
+/* Efeito de hover para os botões do cabeçalho */
+.contact-buttons .btn:hover {
+    background-color: #D0E02A; /* Cor de fundo mais escura ao passar o mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente o botão ao passar o mouse */
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    flex-direction: row; /* Alinha imagem à direita */
+    align-items: center;
+    justify-content: space-between;
+    height: 90vh;
+    background: transparent; /* Fundo transparente */
+    color: black;
+    text-align: left; /* Texto alinhado à esquerda */
+    padding: 20px;
+}
+
+.hero-image {
+    margin-top: 40px; /* Ajuste o valor conforme necessário */
+}
+
+
+.hero-text h1 {
+    font-family: 'Montserrat', sans-serif; /* Mudando a fonte para Montserrat */
+    font-size: 48px; /* Tamanho do título principal */
+    line-height: 1.2; /* Altura da linha para melhor espaçamento */
     text-align: center; /* Centraliza o texto */
 }
 
-/* Títulos da seção Sobre Nós */
-.about-us-section h1,
-.about-us-section h2 {
-    color: black; 
-    margin-bottom: 1rem; /* Espaço abaixo dos títulos */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+.hero-text h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300; /* Peso mais fino */
+    text-align: center; /* Centraliza o texto */
 }
 
-/* Container dos textos */
-.about-us-content {
-    display: grid; /* Usa Grid para o layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Duas colunas responsivas */
-    gap: 30px; /* Aumenta o espaçamento entre os quadrados */
-    margin-top: 2rem; /* Margem acima */
+
+/* Estilo para a seção de serviços */
+.servicos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens */
+    margin: 40px 20px; /* Aumenta a margem lateral para centralização */
+    padding: 20px;
+    background-color: #FFFFFF; /* Fundo branco minimalista */
 }
 
-/* Estilo individual de cada texto */
-.about-us-section p {
-    border: 1px solid #F5FF7D; /* Borda verde */
-    border-radius: 8px; /* Bordas arredondadas */
-    padding: 1rem; /* Padding interno */
-    background-color: rgba(245, 255, 125, 0.1); /* Fundo leve #F5FF7D */
-    transition: transform 0.3s, background-color 0.3s; /* Transição suave */
-    cursor: pointer; /* Indica que pode ser clicável */
+/* Ajuste para as imagens dos serviços */
+.service-icon {
+    width: 60px; /* Define uma largura para os ícones */
+    height: 60px; /* Define uma altura fixa para manter a proporção */
+    display: block;
+    margin: 0 auto 10px; /* Centraliza e adiciona espaçamento abaixo da imagem */
 }
 
-/* Efeito ao passar o mouse sobre os textos */
-.about-us-section p:hover {
-    transform: translateY(-10px); /* Eleva o quadrado ao passar o mouse */
-    background-color: rgba(245, 255, 125, 0.3); /* Escurece o fundo ao passar o mouse */
-}
-
-/* Informações de Contato */
-.contact-info {
-    margin-top: 20px;
+/* Estilo para os quadrados */
+.quadrado {
+    flex: 0 0 calc(50% - 30px); /* 50% menos a margem total para duas colunas */
+    height: auto; /* Permite que a altura se ajuste ao conteúdo */
+    background-color: #E8F5E9; /* Cor de fundo clara e suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border-radius: 20px; /* Cantos mais arredondados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
+    margin: 15px; /* Margem entre os quadrados */
+    padding: 20px; /* Preenchimento interno */
+    box-sizing: border-box; /* Inclui o padding nas dimensões */
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza as informações de contato */
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.contact-info p {
-    margin: 0;
-    color: #666;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .contact-section {
-        padding: 30px 10px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        max-width: 100%;
-    }
-
-    .contact-info {
-        align-items: center; /* Mantém a centralização em telas menores */
-    }
-}
-
-/* Seção de Contato */
-.contact-section {
-    padding: 50px 20px;
-    background-color: var(--cor-fundo);
-    text-align: center;
-}
-
-.contact-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--cor-texto);
-}
-
-.contact-section p {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    color: #666;
-}
-
-/* Mapa */
-.map-container {
-    width: 300px; /* Definindo a largura do mapa */
-    height: 300px; /* Definindo a altura do mapa para ser quadrado */
-    margin: 0 auto; /* Centraliza o mapa */
-    border-radius: 10px; /* Bordas arredondadas */
-    overflow: hidden; /* Para garantir que o conteúdo do mapa não transborde */
-}
-
-
-/* Estilo para os botões do WhatsApp usando IDs */
-#whatsapp-flavio, #whatsapp-marco {
-    display: inline-block; /* Exibir como bloco em linha */
-    padding: 6px 16px; /* Aumentar padding para um pouco mais de altura e largura */
-    background-color: #F5FF7D; /* Cor do botão */
+/* Estilo do texto dentro dos quadrados */
+.quadrado h2 { 
+    font-family: 'Poppins', sans-serif; /* Tipografia moderna */
+    font-size: 20px; /* Tamanho da fonte ajustado */
     color: #333; /* Cor do texto */
-    border: none; /* Sem borda padrão */
-    border-radius: 5px; /* Bordas arredondadas */
-    font-size: 0.9rem; /* Tamanho da fonte ligeiramente maior */
-    cursor: pointer; /* Mudar o cursor ao passar o mouse */
-    transition: background-color 0.3s, color 0.3s; /* Transição de cores */
-    max-width: 180px; /* Aumentar a largura máxima para o botão */
-    text-align: center; /* Centraliza o texto dentro do botão */
-    margin-top: 4px; /* Aumentar margem superior para um leve espaço acima */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+}
+
+.quadrado p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #555; /* Cor do subtítulo */
+}
+
+/* Cores escondidas */
+.quadrado.green-lime {
+    background-color: #A5D6A7; /* Verde mais marcante */
+}
+
+.quadrado.dark-gray {
+    background-color: #333; /* Cinza escuro */
+    color: #FFF; /* Texto branco no fundo escuro */
+}
+
+/* Sombra quando ativo */
+.quadrado.green-lime.active,
+.quadrado.dark-gray.active {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra aumentada quando ativo */
+}
+
+/* Efeito de ativação rápida */
+.quadrado.active {
+    transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Efeito rápido */
 }
 
 /* Efeito de hover */
-#whatsapp-flavio:hover, #whatsapp-marco:hover {
-    background-color: #333; /* Cor de fundo ao passar o mouse */
-    color: #fff; /* Cor do texto ao passar o mouse */
+.quadrado:hover {
+    background-color: #B2DFDB; /* Cor mais intensa ao passar o mouse */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Efeito de sombra maior */
+}
+
+/* Animação de rolagem */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.scroll {
+    animation: scroll 0.5s linear infinite; /* Rolar para a esquerda */
+}
+
+/* Galeria */
+.masonry-gallery {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.masonry-gallery h2 {
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+/* Grid Responsivo para Galeria */
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 colunas para telas grandes */
+    gap: 15px;
+    padding: 10px;
+}
+
+/* Estilo dos itens da galeria */
+.masonry-grid a {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; /* Adicionado para o efeito do ponto de interrogação */
+}
+
+.masonry-grid img {
+    width: 100%;
+    height: 200px; /* Altura fixa para todos os itens */
+    object-fit: cover; /* Garante que a imagem preencha o espaço */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+.masonry-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilo para o ícone de ponto de interrogação */
+.masonry-grid a::after {
+    content: '?';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.masonry-grid a:hover::after {
+    opacity: 1; /* Mostra o ponto de interrogação ao passar o mouse */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 1200px) {
+    .masonry-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas para telas médias */
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas muito pequenas */
+    }
+}
+
+
+/* Seção de Contato */
+.contact-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.contact-section {
+    text-align: center; /* Centraliza o conteúdo da seção */
+}
+
+.map-container {
+    display: inline-block; /* Faz o contêiner do mapa se comportar como um bloco em linha */
+    margin: 20px auto; /* Centraliza o contêiner e adiciona margem superior e inferior */
+    border-radius: 10px; /* Raio de borda para o arredondamento */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra ao redor do mapa */
+    overflow: hidden; /* Garante que os cantos arredondados sejam aplicados corretamente */
+}
+
+.map-iframe {
+    width: 400px; /* Ajuste a largura do iframe para o tamanho desejado */
+    height: 300px; /* Ajuste a altura do iframe para o tamanho desejado */
+    border: 0; /* Remove a borda padrão do iframe */
+    border-radius: 10px; /* Aplica o mesmo arredondamento ao iframe */
+    box-shadow: none; /* Remove a sombra do iframe para não duplicar */
+}
+
+/* Responsividade para dispositivos menores */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Alinha o texto e a imagem verticalmente */
+        height: auto; /* Ajusta a altura automaticamente */
+    }
+
+    .hero-image {
+        margin-top: 20px; /* Ajusta a margem superior */
+    }
+
+    /* Seção de Serviços */
+    .servicos {
+        flex-direction: column; /* Alinha os itens em coluna */
+        padding: 10px; /* Reduz o preenchimento lateral */
+    }
+
+    .quadrado {
+        flex: 0 0 100%; /* Cada quadrado ocupa 100% da largura */
+        margin: 10px 0; /* Margem acima e abaixo dos quadrados */
+    }
+
+    /* Cabeçalho */
+    header {
+        flex-direction: row; /* Mantém os botões em linha */
+        justify-content: space-between; /* Espaça os elementos */
+    }
+
+    .contact-buttons .btn {
+        font-size: 12px; /* Reduz o tamanho da fonte dos botões */
+        padding: 10px; /* Ajusta o padding dos botões */
+    }
+
+    /* Alterando os títulos dos serviços para ícones apenas */
+    .service-item h3 {
+        display: none; /* Oculta os títulos */
+    }
+
+    .service-item i {
+        font-size: 24px; /* Ajusta o tamanho dos ícones */
+        margin-bottom: 5px; /* Margem abaixo do ícone */
+    }   
 }
