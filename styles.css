@@ -131,6 +131,7 @@ header {
 .quadrado h2 { 
     font-family: 'Poppins', sans-serif; /* Tipografia moderna */
     font-size: 20px; /* Tamanho da fonte ajustado */
+    line-height: 1.4; /* Melhora a legibilidade */
     color: #333; /* Cor do texto */
     margin-bottom: 10px; /* Espaçamento abaixo do título */
 }
@@ -138,6 +139,7 @@ header {
 .quadrado p {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
+    line-height: 1.5; /* Melhora a legibilidade */
     color: #555; /* Cor do subtítulo */
 }
 
@@ -177,6 +179,20 @@ header {
 .scroll {
     animation: scroll 0.5s linear infinite; /* Rolar para a esquerda */
 }
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    .quadrado {
+        flex: 0 0 calc(50% - 30px); /* Mantém duas colunas em telas menores */
+    }
+    .quadrado h2 {
+        font-size: 18px; /* Ajuste o tamanho da fonte */
+    }
+    .quadrado p {
+        font-size: 12px; /* Ajuste o tamanho da fonte */
+    }
+}
+
 
 /* Galeria */
 .masonry-gallery {
@@ -312,19 +328,8 @@ header {
 
     .hero-image {
         margin-top: 20px; /* Ajusta a margem superior */
-    }
-
-    /* Seção de Serviços */
-    .servicos {
-        flex-direction: column; /* Alinha os itens em coluna */
-        padding: 10px; /* Reduz o preenchimento lateral */
-    }
-
-    .quadrado {
-        flex: 0 0 100%; /* Cada quadrado ocupa 100% da largura */
-        margin: 10px 0; /* Margem acima e abaixo dos quadrados */
-    }
-
+    }  
+    
     /* Cabeçalho */
     header {
         flex-direction: row; /* Mantém os botões em linha */
