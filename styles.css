@@ -92,9 +92,9 @@ header {
 
 /* Estilo para a seção de serviços */
 .servicos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centraliza os itens */
+    display: grid; /* Usa grid */
+    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas */
+    gap: 30px; /* Espaçamento entre os itens */
     margin: 40px 20px; /* Aumenta a margem lateral para centralização */
     padding: 20px;
     background-color: #FFFFFF; /* Fundo branco minimalista */
@@ -110,14 +110,11 @@ header {
 
 /* Estilo para os quadrados */
 .quadrado {
-    flex: 0 0 calc(50% - 30px); /* 50% menos a margem total para duas colunas */
-    height: auto; /* Permite que a altura se ajuste ao conteúdo */
     background-color: #E8F5E9; /* Cor de fundo clara e suave */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     border-radius: 20px; /* Cantos mais arredondados */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
-    margin: 15px; /* Margem entre os quadrados */
     padding: 20px; /* Preenchimento interno */
     box-sizing: border-box; /* Inclui o padding nas dimensões */
     text-align: center;
@@ -159,39 +156,27 @@ header {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra aumentada quando ativo */
 }
 
-/* Efeito de ativação rápida */
-.quadrado.active {
-    transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Efeito rápido */
-}
-
 /* Efeito de hover */
 .quadrado:hover {
     background-color: #B2DFDB; /* Cor mais intensa ao passar o mouse */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Efeito de sombra maior */
 }
 
-/* Animação de rolagem */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-.scroll {
-    animation: scroll 0.5s linear infinite; /* Rolar para a esquerda */
-}
-
 /* Media queries para responsividade */
 @media (max-width: 768px) {
-    .quadrado {
-        flex: 0 0 calc(50% - 30px); /* Mantém duas colunas em telas menores */
-    }
-    .quadrado h2 {
-        font-size: 18px; /* Ajuste o tamanho da fonte */
-    }
-    .quadrado p {
-        font-size: 12px; /* Ajuste o tamanho da fonte */
+    .servicos {
+        grid-template-columns: repeat(2, 1fr); /* Mantém duas colunas em telas menores */
     }
 }
+
+/* Centraliza o último item */
+.last-item {
+    grid-column: span 2; /* Faz o último item ocupar ambas as colunas */
+    display: flex; /* Habilita flexbox */
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center; /* Alinha verticalmente */
+}
+
 
 
 /* Galeria */
