@@ -1,5 +1,5 @@
-/* Reset e cores principais */
-:root {
+ /* Reset e cores principais */
+ :root {
     --primary-color: #F5FF7D; /* Verde limão */
     --secondary-color: #333; /* Cinza escuro */
     --light-bg: #f9f9f9; /* Fundo claro */
@@ -17,6 +17,18 @@ body {
     margin: 0; /* Remove margem padrão */
 }
 
+/* Estilo para títulos de seções */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Títulos com a mesma fonte do hero */
+    font-weight: 300; /* Peso mais fino para títulos */
+    text-align: center; /* Centralizar texto */
+}
+
+/* Outros estilos para texto */
+p {
+    text-align: center; /* Centralizar parágrafos */
+    margin: 1rem 0; /* Margens em cima e embaixo */
+}
 
 /* Header */
 header {
@@ -72,111 +84,97 @@ header {
 }
 
 .hero-image {
-    margin-top: 40px; /* Ajuste o valor conforme necessário */
+    margin-top: 20px; /* Ajuste o valor conforme necessário */
+    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner */
 }
-
 
 .hero-text h1 {
     font-family: 'Montserrat', sans-serif; /* Mudando a fonte para Montserrat */
-    font-size: 48px; /* Tamanho do título principal */
+    font-size: 64px; /* Tamanho do título principal */
     line-height: 1.2; /* Altura da linha para melhor espaçamento */
-    text-align: center; /* Centraliza o texto */
+    margin-left: 20px; /* Margem à esquerda */
 }
 
 .hero-text h2 {
     font-family: 'Roboto', sans-serif;
     font-weight: 300; /* Peso mais fino */
-    text-align: center; /* Centraliza o texto */
+    font-size: 28px; /* Tamanho do subtítulo */
+    margin-left: 20px; /* Margem à esquerda */
 }
-
 
 /* Estilo para a seção de serviços */
 .servicos {
-    display: grid; /* Usa grid */
-    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas */
-    gap: 30px; /* Espaçamento entre os itens */
-    margin: 40px 20px; /* Aumenta a margem lateral para centralização */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três colunas */
+    gap: 30px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #FFFFFF; /* Fundo branco minimalista */
-}
-
-/* Ajuste para as imagens dos serviços */
-.service-icon {
-    width: 60px; /* Define uma largura para os ícones */
-    height: 60px; /* Define uma altura fixa para manter a proporção */
-    display: block;
-    margin: 0 auto 10px; /* Centraliza e adiciona espaçamento abaixo da imagem */
+    max-width: 1200px;
+    background-color: #FFFFFF;
 }
 
 /* Estilo para os quadrados */
 .quadrado {
-    background-color: #E8F5E9; /* Cor de fundo clara e suave */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #333; /* Inicia com cinza escuro */
+    color: #FFF;
     position: relative;
-    border-radius: 20px; /* Cantos mais arredondados */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
-    padding: 20px; /* Preenchimento interno */
-    box-sizing: border-box; /* Inclui o padding nas dimensões */
+    border-radius: 20px;
+    padding: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translate(-30px, 30px) scale(0.9); /* Posição e tamanho inicial */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilo do texto dentro dos quadrados */
-.quadrado h2 { 
-    font-family: 'Poppins', sans-serif; /* Tipografia moderna */
-    font-size: 20px; /* Tamanho da fonte ajustado */
-    line-height: 1.4; /* Melhora a legibilidade */
-    color: #333; /* Cor do texto */
-    margin-bottom: 10px; /* Espaçamento abaixo do título */
+/* Ativa a animação */
+.quadrado.active {
+    opacity: 1;
+    transform: translate(0, 0) scale(1); /* Define a posição final e o efeito de "salto" */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+/* Efeito de hover */
+.quadrado:hover {
+    box-shadow: 0 10px 25px rgba(245, 255, 125, 0.4); /* Efeito de iluminação ao passar o mouse */
+    background-color: #B2DFDB;
+}
+
+/* Estilo para o conteúdo dentro dos quadrados */
+.quadrado h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 10px;
 }
 
 .quadrado p {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
-    line-height: 1.5; /* Melhora a legibilidade */
-    color: #555; /* Cor do subtítulo */
+    line-height: 1.5;
+    color: #FFF;
 }
 
-/* Cores escondidas */
-.quadrado.green-lime {
-    background-color: #A5D6A7; /* Verde mais marcante */
-}
-
-.quadrado.dark-gray {
-    background-color: #333; /* Cinza escuro */
-    color: #FFF; /* Texto branco no fundo escuro */
-}
-
-/* Sombra quando ativo */
-.quadrado.green-lime.active,
-.quadrado.dark-gray.active {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra aumentada quando ativo */
-}
-
-/* Efeito de hover */
-.quadrado:hover {
-    background-color: #B2DFDB; /* Cor mais intensa ao passar o mouse */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Efeito de sombra maior */
-}
-
-/* Media queries para responsividade */
+/* Responsividade */
 @media (max-width: 768px) {
     .servicos {
-        grid-template-columns: repeat(2, 1fr); /* Mantém duas colunas em telas menores */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 }
 
+
 /* Centraliza o último item */
 .last-item {
-    grid-column: span 2; /* Faz o último item ocupar ambas as colunas */
-    display: flex; /* Habilita flexbox */
-    justify-content: center; /* Centraliza o conteúdo */
-    align-items: center; /* Alinha verticalmente */
+    grid-column: span 3; /* Faz o último item ocupar todas as colunas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 
 /* Galeria */
@@ -262,6 +260,48 @@ header {
     }
 }
 
+/* Galeria de Peças */
+.masonry-gallery2 {
+    padding: 20px;
+    text-align: center;
+}
+
+.masonry-gallery2 h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333; /* Cor do título */
+}
+
+.masonry-grid2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
+
+/* Estilo para cada item da galeria */
+.masonry-grid2 .gallery-item {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.masonry-grid2 .gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Garante que a imagem inteira seja exibida */
+    border-radius: 10px; /* Bordas arredondadas para as imagens */
+    transition: transform 0.3s ease; /* Efeito de transição para zoom */
+}
+
+/* Efeito de zoom ao passar o mouse */
+.masonry-grid2 .gallery-item:hover img {
+    transform: scale(1.05); /* Leve aumento no tamanho da imagem */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+
 
 /* Seção de Contato */
 .contact-section {
@@ -336,3 +376,4 @@ header {
         margin-bottom: 5px; /* Margem abaixo do ícone */
     }   
 }
+
