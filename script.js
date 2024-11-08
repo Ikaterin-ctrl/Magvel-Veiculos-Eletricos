@@ -15,3 +15,5 @@ const observer = new IntersectionObserver((entries) => {
 
 // Adiciona o observador para cada quadrado
 quadrados.forEach(quadrado => observer.observe(quadrado));
+
+
