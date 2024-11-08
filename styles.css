@@ -488,53 +488,57 @@ header {
 		box-shadow: 0 0 20px #fff, 0 0 40px #f5ff7d
 	}
 }
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
-@media (max-width:768px) {
-	header {
-		flex-direction: row;
-		justify-content: space-between
-	}
+    .logo {
+        height: 35px;
+        margin-left: 0;
+    }
 
-	.logo {
-		height: 35px;
-		margin-left: 0
-	}
+    .contact-buttons {
+        display: flex;
+        justify-content: center; /* Centraliza os botões no header */
+        gap: 10px;
+        width: 100%; /* Garante que os botões ocupem toda a largura */
+    }
 
-	.contact-buttons {
-		display: flex;
-		justify-content: flex-start;
-		gap: 10px
-	}
+    .contact-buttons .btn {
+        font-size: 12px;
+        padding: 8px 20px;
+    }
 
-	.contact-buttons .btn {
-		font-size: 12px;
-		padding: 8px 20px
-	}
+    .hero-text h1 {
+        font-size: 32px;
+    }
 
-	.hero-text h1 {
-		font-size: 32px
-	}
-
-	.hero-text h2 {
-		font-size: 18px
-	}
+    .hero-text h2 {
+        font-size: 18px;
+    }
 }
 
-@media (max-width:480px) {
-	.logo {
-		height: 30px
-	}
+@media (max-width: 480px) {
+    .logo {
+        height: 30px;
+    }
 
-	.contact-buttons .btn {
-		padding: 6px 16px;
-		font-size: 10px
-	}
+    .contact-buttons {
+        justify-content: center; /* Centraliza os botões no header em telas muito pequenas */
+    }
 
-	.hero-text h1 {
-		font-size: 28px
-	}
+    .contact-buttons .btn {
+        padding: 6px 16px;
+        font-size: 10px;
+    }
 
-	.hero-text h2 {
-		font-size: 16px
-	}
+    .hero-text h1 {
+        font-size: 28px;
+    }
+
+    .hero-text h2 {
+        font-size: 16px;
+    }
 }
