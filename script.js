@@ -17,3 +17,13 @@ const observer = new IntersectionObserver((entries) => {
 quadrados.forEach(quadrado => observer.observe(quadrado));
 
 
+// JavaScript para ativar a classe section-visible ao rolar
+const sections = document.querySelectorAll('.servicos-prestados, .masonry-gallery, .masonry-gallery2, .interest-capture');
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < window.innerHeight * 0.8) {
+      section.classList.add('section-visible');
+    }
+  });
+});
