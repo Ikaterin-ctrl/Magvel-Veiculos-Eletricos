@@ -602,3 +602,28 @@ header {
         font-size: 18px;
     }
 }
+
+
+
+/* Estilo do Lightbox */
+#lightboxOverlay {
+    background-color: rgba(0, 0, 0, 0.7) !important; /* Fundo escuro com transparência */
+    z-index: 999; /* Garante que o Lightbox fique abaixo do header */
+}
+
+/* Garante que o Lightbox não cubra o header */
+.lb-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px); /* Reduz a altura para não cobrir o header */
+}
+
+
+
+
+/* Estilo para a imagem exibida no Lightbox com bordas arredondadas */
+.lb-image {
+    border-radius: 15px; /* Altere esse valor conforme o desejo para o arredondamento */
+    overflow: hidden; /* Garante que a imagem não ultrapasse os cantos arredondados */
+}

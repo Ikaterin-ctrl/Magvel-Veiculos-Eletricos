@@ -11,6 +11,12 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+  <!-- Lightbox CSS -->
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
+
+<!-- Lightbox JS -->
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+
 
   <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +49,9 @@
 
 <body>
   <header>
+    <a href="index.html"> 
     <img src="./assets/logos/logo_verde.png" alt="Logo Magvel" class="logo">
+</a>
     <div class="contact-buttons">
         <a href="mailto:contato@magvel.com" class="btn">Email</a>
         <a href="https://wa.me/5519983680292?text=Oi,%20preciso%20de%20ajuda%20com%20o%20serviço%20de%20manutenção.%20Posso%20falar%20com%20Marco%20também?" class="btn">WhatsApp</a>
@@ -61,45 +69,45 @@
       </div>
   </header>
   
-  <!-- Galeria de Imagens -->
-  <section id="masonry-gallery" class="masonry-gallery">
+<!-- Galeria de Manutenções -->
+<section id="masonry-gallery" class="masonry-gallery">
     <h2>Galeria de Manutenções</h2>
     <div class="masonry-grid">
-        <a href="./assets/galeria_de_imagens/1.webp" data-lightbox="gallery">
+        <a href="./assets/galeria_de_imagens/1.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 1">
             <img src="./assets/galeria_de_imagens/1.webp" alt="Imagem de manutenção do veículo 1">
         </a>
-        <a href="./assets/galeria_de_imagens/2.webp" data-lightbox="gallery">
+        <a href="./assets/galeria_de_imagens/2.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 2">
             <img src="./assets/galeria_de_imagens/2.webp" alt="Imagem de manutenção do veículo 2">
         </a>
-        <a href="./assets/galeria_de_imagens/3.webp" data-lightbox="gallery">
-            <img src="./assets/galeria_de_imagens/3.webp" alt="Imagem de manutenção do veículo 2">
+        <a href="./assets/galeria_de_imagens/3.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 3">
+            <img src="./assets/galeria_de_imagens/3.webp" alt="Imagem de manutenção do veículo 3">
         </a>
-        <a href="./assets/galeria_de_imagens/4.webp" data-lightbox="gallery">
-            <img src="./assets/galeria_de_imagens/4.webp" alt="Imagem de manutenção do veículo 2">
+        <a href="./assets/galeria_de_imagens/4.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 4">
+            <img src="./assets/galeria_de_imagens/4.webp" alt="Imagem de manutenção do veículo 4">
         </a>
-        <a href="./assets/galeria_de_imagens/3-ve-C3-ADculos-png.webp" data-lightbox="gallery">
-            <img src="./assets/galeria_de_imagens/3-ve-C3-ADculos-png.webp" alt="Imagem de manutenção do veículo 3">
+        <a href="./assets/galeria_de_imagens/3-ve-C3-ADculos-png.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 5">
+            <img src="./assets/galeria_de_imagens/3-ve-C3-ADculos-png.webp" alt="Imagem de manutenção do veículo 5">
         </a>
-        <a href="./assets/galeria_de_imagens/Enfileirados-lado-A.webp" data-lightbox="gallery">
+        <a href="./assets/galeria_de_imagens/Enfileirados-lado-A.webp" data-lightbox="maintenance-gallery" data-title="Veículos enfileirados">
             <img src="./assets/galeria_de_imagens/Enfileirados-lado-A.webp" alt="Veículos enfileirados">
         </a>
-        <a href="./assets/galeria_de_imagens/No-elevador-png.webp" data-lightbox="gallery">
+        <a href="./assets/galeria_de_imagens/No-elevador-png.webp" data-lightbox="maintenance-gallery" data-title="Ferramentas utilizadas">
             <img src="./assets/galeria_de_imagens/No-elevador-png.webp" alt="Ferramentas utilizadas">
         </a>
-        <a href="./assets/galeria_de_imagens/pagina-1-jpg.webpg" data-lightbox="gallery">
+        <a href="./assets/galeria_de_imagens/pagina-1-jpg.webp" data-lightbox="maintenance-gallery" data-title="Veículo no elevador">
             <img src="./assets/galeria_de_imagens/pagina-1-jpg.webp" alt="Veículo no elevador">
         </a>
-        <a href="./assets/galeria_de_imagens/veiculo_do_ano.webp" data-lightbox="gallery">
-            <img src="./assets/galeria_de_imagens/veiculo_do_ano.webp" alt="Página de manutenção">
+        <a href="./assets/galeria_de_imagens/veiculo_do_ano.webp" data-lightbox="maintenance-gallery" data-title="Veículo do ano">
+            <img src="./assets/galeria_de_imagens/veiculo_do_ano.webp" alt="Veículo do ano">
         </a>
-        <a href="./assets/galeria_de_imagens/veiculo_no_elevador.webp" data-lightbox="gallery">
-            <img src="./assets/galeria_de_imagens/veiculo_no_elevador.webp" alt="Veículos lado A">
+        <a href="./assets/galeria_de_imagens/veiculo_no_elevador.webp" data-lightbox="maintenance-gallery" data-title="Veículo no elevador (lado A)">
+            <img src="./assets/galeria_de_imagens/veiculo_no_elevador.webp" alt="Veículo no elevador (lado A)">
         </a>
-        <a href="./assets/galeria_de_imagens/Zoom-manuten-C3-A7-C.webp" data-lightbox="gallery">
-            <img src="./assets/galeria_de_imagens/Zoom-manuten-C3-A7-C.webp" alt="Veículos em manutenção">
+        <a href="./assets/galeria_de_imagens/Zoom-manuten-C3-A7-C.webp" data-lightbox="maintenance-gallery" data-title="Zoom na manutenção do veículo">
+            <img src="./assets/galeria_de_imagens/Zoom-manuten-C3-A7-C.webp" alt="Zoom na manutenção do veículo">
         </a>
-        <a href="./assets/galeria_de_imagens/Ve-C3-ADculos-lado-a.webp" data-lightbox="gallery">
-            <img src="./assets/galeria_de_imagens/Ve-C3-ADculos-lado-a.webp" alt="Zoom na manutenção">
+        <a href="./assets/galeria_de_imagens/Ve-C3-ADculos-lado-a.webp" data-lightbox="maintenance-gallery" data-title="Veículos em manutenção (lado A)">
+            <img src="./assets/galeria_de_imagens/Ve-C3-ADculos-lado-a.webp" alt="Veículos em manutenção (lado A)">
         </a>
     </div>
 </section>
