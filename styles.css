@@ -129,10 +129,6 @@ header {
 	text-align: center
 }
 
-.hero-image {
-	margin-top: 20px;
-	max-width: 100%
-}
 
 .hero-text h1 {
 	font-size: 64px;
@@ -329,10 +325,7 @@ header {
 		flex-direction: column;
 		height: auto
 	}
-
-	.hero-image {
-		margin-top: 20px
-	}
+	
 
 	header {
 		flex-direction: row;
@@ -577,3 +570,35 @@ header {
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   }
   
+
+/* Responsividade: Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Alinha os elementos na vertical */
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .hero-image {
+        width: 100%; /* A imagem ocupa toda a largura disponível */
+        height: auto;
+        margin-top: 20px; /* Dá um espaço entre o texto e a imagem */
+    }
+
+    .hero-text {
+        max-width: 90%; /* Ajusta a largura do texto no mobile */
+        text-align: center;
+    }
+}
+
+/* Ajuste de estilo para telas pequenas (como celulares compactos) */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text h2 {
+        font-size: 18px;
+    }
+}
