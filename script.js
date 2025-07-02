@@ -1,29 +1,118 @@
-// Seleciona todos os elementos com a classe "quadrado"
-const quadrados = document.querySelectorAll('.quadrado');
+// Adicionamos um único 'listener' que espera a página carregar por completo.
+// Isso evita erros e garante que todos os elementos do HTML estejam prontos.
+document.addEventListener('DOMContentLoaded', function() {
+/* ========================================================== */
+/* ATIVADOR DA ANIMAÇÃO DOS CARDS DE SERVIÇO                  */
+/* ========================================================== */
 
-// Cria um IntersectionObserver para observar a entrada dos elementos na tela
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active'); // Adiciona a classe "active" quando o quadrado está visível
-            observer.unobserve(entry.target); // Para de observar o quadrado após a ativação
-        }
-    });
-}, {
-    threshold: 0.5 // Ativa quando 50% do quadrado está visível
-});
+// 1. Selecionamos todos os cards que devem ser animados
+const cardsDeServico = document.querySelectorAll('.quadrado');
 
-// Adiciona o observador para cada quadrado
-quadrados.forEach(quadrado => observer.observe(quadrado));
-
-
-// JavaScript para ativar a classe section-visible ao rolar
-const sections = document.querySelectorAll('.servicos-prestados, .masonry-gallery, .masonry-gallery2, .interest-capture');
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-    if (sectionTop < window.innerHeight * 0.8) {
-      section.classList.add('section-visible');
+// 2. Criamos o "olheiro" (Observer)
+const cardObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    // 3. Quando um card entra na tela...
+    if (entry.isIntersecting) {
+      // ...adicionamos a classe '.active' para iniciar a animação do CSS
+      entry.target.classList.add('active');
+      // 4. E paramos de "olhar" para ele, para a animação não repetir
+      observer.unobserve(entry.target);
     }
   });
+}, {
+  threshold: 0.2 // A animação começa quando 20% do card estiver visível
+});
+
+// 5. Mandamos o "olheiro" observar cada um dos cards
+cardsDeServico.forEach(card => {
+  cardObserver.observe(card);
+});
+  /* ================================================================== */
+  /* ANIMAÇÕES DE FADE-IN (MÉTODO OTIMIZADO)                            */
+  /* ================================================================== */
+  // Usaremos um único IntersectionObserver para animar todas as seções.
+  // É muito mais eficiente para o navegador do que o antigo 'scroll listener'.
+
+  const observerOptions = {
+    root: null, // Observa em relação à viewport
+    rootMargin: '0px',
+    threshold: 0.1 // Ativa quando 10% do elemento estiver visível
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-visible'); // Adiciona a classe para o fade-in
+        observer.unobserve(entry.target); // Para de observar o elemento depois que ele já apareceu
+      }
+    });
+  }, observerOptions);
+
+  // Seleciona todos os elementos que queremos animar e manda o observer "observá-los"
+  const sectionsToAnimate = document.querySelectorAll('.servicos-prestados, .masonry-gallery, .masonry-gallery2, .interest-capture, .benefits, .social-proof, .contact-section');
+  sectionsToAnimate.forEach(section => {
+    observer.observe(section);
+  });
+
+
+/* ================================================================== */
+/* INICIALIZAÇÃO DOS CARROSSÉIS (SWIPERJS)                           */
+/* ================================================================== */
+
+// Carrossel 1: Manutenções (este já deve estar aí)
+const swiperMaintenance = new Swiper(".mySwiper", {
+  effect: "fade",
+  fadeEffect: { crossFade: true },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  loop: true,
+});
+
+// ADICIONE ESTE NOVO BLOCO ABAIXO DO PRIMEIRO
+// Carrossel 2: Peças
+const swiperParts = new Swiper(".mySwiperParts", {
+  // Vamos usar um efeito de slide aqui para variar
+  effect: "slide",
+  slidesPerView: 3, // Mostra 3 imagens por vez
+  spaceBetween: 30, // Espaço entre as imagens
+  
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  loop: true,
+});
+
+  /* ================================================================== */
+  /* HORÁRIO DE ATENDIMENTO DINÂMICO                                    */
+  /* ================================================================== */
+  // Esta função já estava ótima! Apenas a colocamos dentro do 'DOMContentLoaded'.
+  const officeHoursEl = document.getElementById('office-hours');
+  if (officeHoursEl) { // Boa prática: verificar se o elemento existe antes de usá-lo
+    const today = new Date().getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
+    
+    // Horário de funcionamento: Seg-Sex (1 a 5) das 08:00 às 16:00
+    // Vamos considerar o horário atual para sermos mais precisos
+    const currentHour = new Date().getHours();
+    const isOpen = (today >= 1 && today <= 5) && (currentHour >= 8 && currentHour < 16);
+
+    if (isOpen) {
+      officeHoursEl.innerHTML = '<strong>Aberto agora:</strong> Atendendo até as 16:00';
+      officeHoursEl.style.color = '#3A7D44'; // Verde, indicando "aberto"
+    } else {
+      officeHoursEl.innerHTML = '<strong>Fechado agora:</strong> Atendemos de Seg a Sex, das 08:00 às 16:00';
+      officeHoursEl.style.color = '#c0392b'; // Vermelho, indicando "fechado"
+    }
+  }
+
 });
