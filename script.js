@@ -56,10 +56,10 @@ cardsDeServico.forEach(card => {
 
 
 /* ================================================================== */
-/* INICIALIZAÇÃO DOS CARROSSÉIS (SWIPERJS)                           */
+/* INICIALIZAÇÃO DOS CARROSSÉIS (SWIPERJS) - CORREÇÃO PARA MOBILE     */
 /* ================================================================== */
 
-// Carrossel 1: Manutenções (este já deve estar aí)
+// Carrossel 1: Manutenções
 const swiperMaintenance = new Swiper(".mySwiper", {
   effect: "fade",
   fadeEffect: { crossFade: true },
@@ -69,30 +69,31 @@ const swiperMaintenance = new Swiper(".mySwiper", {
   },
   autoplay: {
     delay: 5000,
-    disableOnInteraction: false,
+    disableOnInteraction: false, // <-- GARANTA QUE ESTA LINHA ESTEJA AQUI
   },
   loop: true,
 });
 
-// ADICIONE ESTE NOVO BLOCO ABAIXO DO PRIMEIRO
 // Carrossel 2: Peças
 const swiperParts = new Swiper(".mySwiperParts", {
-  // Vamos usar um efeito de slide aqui para variar
   effect: "slide",
-  slidesPerView: 3, // Mostra 3 imagens por vez
-  spaceBetween: 30, // Espaço entre as imagens
-  
+  slidesPerView: 1,
+  spaceBetween: 30,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
   autoplay: {
     delay: 4000,
-    disableOnInteraction: false,
+    disableOnInteraction: false, // <-- E AQUI TAMBÉM
   },
   loop: true,
+  breakpoints: {
+    640: { slidesPerView: 2, spaceBetween: 20 },
+    768: { slidesPerView: 3, spaceBetween: 40 },
+    1024: { slidesPerView: 4, spaceBetween: 50 },
+  }
 });
-
   /* ================================================================== */
   /* HORÁRIO DE ATENDIMENTO DINÂMICO                                    */
   /* ================================================================== */
