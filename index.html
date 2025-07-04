@@ -9,13 +9,12 @@
   <!-- Favicon -->
   <link rel="icon" href="./icon_e60e7db3656f80a6f5b3e55dc2ad0edd.ico">
   
-  <!-- Stylesheet -->   
-  
+  <!-- Stylesheet -->    
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <!-- Lightbox CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
-  <!-- Lightbox JS -->
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+  <!-- Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+  <!-- Fancybox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
   <link rel="stylesheet" href="style.css">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,92 +65,90 @@
       <p class="star-rating">★★★★★</p>
       <p><strong>5 estrelas com base em mais de 500 avaliações</strong></p>
       <a href="https://g.page/r/CcrDbmGw6czbEAE/review" target="_blank" rel="noopener" class="btn">Ver avaliações no Google</a>
-    </section>
-
     <!-- Galeria de Manutenções -->
-<section id="masonry-gallery" class="masonry-gallery" aria-labelledby="manute-gallery-title">
-  <h2 id="manute-gallery-title">Galeria de Manutenções</h2>
+  <section id="masonry-gallery" class="masonry-gallery" aria-labelledby="manute-gallery-title">
+    <h2 id="manute-gallery-title">Galeria de Manutenções</h2>
 
-  <div class="swiper mySwiper">
+    <div class="swiper mySwiper">
+    <button class="custom-close" onclick="closeGallery()" aria-label="Fechar galeria">&times;</button>
     <div class="swiper-wrapper">
     
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/1.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 1">
-          <img src="./assets/galeria_de_imagens/1.webp" alt="Imagem de manutenção do veículo 1">
-        </a>
+      <a href="./assets/galeria_de_imagens/1.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 1">
+        <img src="./assets/galeria_de_imagens/1.webp" alt="Imagem de manutenção do veículo 1">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/2.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 2">
-          <img src="./assets/galeria_de_imagens/2.webp" alt="Imagem de manutenção do veículo 2">
-        </a>
+      <a href="./assets/galeria_de_imagens/2.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 2">
+        <img src="./assets/galeria_de_imagens/2.webp" alt="Imagem de manutenção do veículo 2">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/3-ve-C3-ADculos-png.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 3">
-          <img src="./assets/galeria_de_imagens/3-ve-C3-ADculos-png.webp" alt="Imagem de manutenção do veículo 3">
-        </a>
+      <a href="./assets/galeria_de_imagens/3-ve-C3-ADculos-png.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 3">
+        <img src="./assets/galeria_de_imagens/3-ve-C3-ADculos-png.webp" alt="Imagem de manutenção do veículo 3">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/3.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 4">
-          <img src="./assets/galeria_de_imagens/3.webp" alt="Imagem de manutenção do veículo 4">
-        </a>
+      <a href="./assets/galeria_de_imagens/3.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 4">
+        <img src="./assets/galeria_de_imagens/3.webp" alt="Imagem de manutenção do veículo 4">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/4.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 5">
-          <img src="./assets/galeria_de_imagens/4.webp" alt="Imagem de manutenção do veículo 5">
-        </a>
+      <a href="./assets/galeria_de_imagens/4.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 5">
+        <img src="./assets/galeria_de_imagens/4.webp" alt="Imagem de manutenção do veículo 5">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/Enfileirados-lado-A.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 6">
-          <img src="./assets/galeria_de_imagens/Enfileirados-lado-A.webp" alt="Imagem de manutenção do veículo 6">
-        </a>
+      <a href="./assets/galeria_de_imagens/Enfileirados-lado-A.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 6">
+        <img src="./assets/galeria_de_imagens/Enfileirados-lado-A.webp" alt="Imagem de manutenção do veículo 6">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/No-elevador-png.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 7">
-          <img src="./assets/galeria_de_imagens/No-elevador-png.webp" alt="Imagem de manutenção do veículo 7">
-        </a>
+      <a href="./assets/galeria_de_imagens/No-elevador-png.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 7">
+        <img src="./assets/galeria_de_imagens/No-elevador-png.webp" alt="Imagem de manutenção do veículo 7">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/pagina-1-jpg.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 8">
-          <img src="./assets/galeria_de_imagens/pagina-1-jpg.webp" alt="Imagem de manutenção do veículo 8">
-        </a>
+      <a href="./assets/galeria_de_imagens/pagina-1-jpg.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 8">
+        <img src="./assets/galeria_de_imagens/pagina-1-jpg.webp" alt="Imagem de manutenção do veículo 8">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/peças.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 9">
-          <img src="./assets/galeria_de_imagens/peças.webp" alt="Imagem de manutenção do veículo 9">
-        </a>
+      <a href="./assets/galeria_de_imagens/peças.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 9">
+        <img src="./assets/galeria_de_imagens/peças.webp" alt="Imagem de manutenção do veículo 9">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/Ve-C3-ADculos-lado-a.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 10">
-          <img src="./assets/galeria_de_imagens/Ve-C3-ADculos-lado-a.webp" alt="Imagem de manutenção do veículo 10">
-        </a>
+      <a href="./assets/galeria_de_imagens/Ve-C3-ADculos-lado-a.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 10">
+        <img src="./assets/galeria_de_imagens/Ve-C3-ADculos-lado-a.webp" alt="Imagem de manutenção do veículo 10">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/veiculo_do_ano.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 11">
-          <img src="./assets/galeria_de_imagens/veiculo_do_ano.webp" alt="Imagem de manutenção do veículo 11">
-        </a>
+      <a href="./assets/galeria_de_imagens/veiculo_do_ano.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 11">
+        <img src="./assets/galeria_de_imagens/veiculo_do_ano.webp" alt="Imagem de manutenção do veículo 11">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/veiculo_no_elevador.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 12">
-          <img src="./assets/galeria_de_imagens/veiculo_no_elevador.webp" alt="Imagem de manutenção do veículo 12">
-        </a>
+      <a href="./assets/galeria_de_imagens/veiculo_no_elevador.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 12">
+        <img src="./assets/galeria_de_imagens/veiculo_no_elevador.webp" alt="Imagem de manutenção do veículo 12">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/Veiculos-2-png.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 13">
-          <img src="./assets/galeria_de_imagens/Veiculos-2-png.webp" alt="Imagem de manutenção do veículo 13">
-        </a>
+      <a href="./assets/galeria_de_imagens/Veiculos-2-png.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 13">
+        <img src="./assets/galeria_de_imagens/Veiculos-2-png.webp" alt="Imagem de manutenção do veículo 13">
+      </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_imagens/Zoom-manuten-C3-A7-C.webp" data-lightbox="maintenance-gallery" data-title="Manutenção do veículo 14">
-          <img src="./assets/galeria_de_imagens/Zoom-manuten-C3-A7-C.webp" alt="Imagem de manutenção do veículo 14">
-        </a>
+      <a href="./assets/galeria_de_imagens/Zoom-manuten-C3-A7-C.webp" data-fancybox="maintenance-gallery" data-caption="Manutenção do veículo 14">
+        <img src="./assets/galeria_de_imagens/Zoom-manuten-C3-A7-C.webp" alt="Imagem de manutenção do veículo 14">
+      </a>
       </div>
 
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
-  </div>
-  </section>
-
+    </div>
+    </section>
 
     <!-- Serviços Prestados -->
     <section class="servicos-prestados" aria-labelledby="services-title">
@@ -204,97 +201,97 @@
     <div class="swiper-wrapper">
 
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/acelerador.webp" data-lightbox="gallery-parts" data-title="Peça - Acelerador">
+        <a href="./assets/galeria_de_peças/acelerador.webp" data-fancybox="gallery-parts" data-caption="Peça - Acelerador">
           <img src="./assets/galeria_de_peças/acelerador.webp" alt="Peça - Acelerador">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/bateria_De_litio.webp" data-lightbox="gallery-parts" data-title="Peça - Bateria de Lítio">
+        <a href="./assets/galeria_de_peças/bateria_De_litio.webp" data-fancybox="gallery-parts" data-caption="Peça - Bateria de Lítio">
           <img src="./assets/galeria_de_peças/bateria_De_litio.webp" alt="Peça - Bateria de Lítio">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/cabo_De_conexão_bateria.webp" data-lightbox="gallery-parts" data-title="Peça - Cabo de Conexão">
+        <a href="./assets/galeria_de_peças/cabo_De_conexão_bateria.webp" data-fancybox="gallery-parts" data-caption="Peça - Cabo de Conexão">
           <img src="./assets/galeria_de_peças/cabo_De_conexão_bateria.webp" alt="Peça - Cabo de Conexão">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/cabos_de_bateria.webp" data-lightbox="gallery-parts" data-title="Peça - Cabos de Bateria">
+        <a href="./assets/galeria_de_peças/cabos_de_bateria.webp" data-fancybox="gallery-parts" data-caption="Peça - Cabos de Bateria">
           <img src="./assets/galeria_de_peças/cabos_de_bateria.webp" alt="Peça - Cabos de Bateria">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/carregador_De_bateria_2.webp" data-lightbox="gallery-parts" data-title="Peça - Carregador de Bateria">
+        <a href="./assets/galeria_de_peças/carregador_De_bateria_2.webp" data-fancybox="gallery-parts" data-caption="Peça - Carregador de Bateria">
           <img src="./assets/galeria_de_peças/carregador_De_bateria_2.webp" alt="Peça - Carregador de Bateria">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/carregador_de_bateria.webp" data-lightbox="gallery-parts" data-title="Peça - Carregador de Bateria">
+        <a href="./assets/galeria_de_peças/carregador_de_bateria.webp" data-fancybox="gallery-parts" data-caption="Peça - Carregador de Bateria">
           <img src="./assets/galeria_de_peças/carregador_de_bateria.webp" alt="Peça - Carregador de Bateria">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/controlador.webp" data-lightbox="gallery-parts" data-title="Peça - Controlador">
+        <a href="./assets/galeria_de_peças/controlador.webp" data-fancybox="gallery-parts" data-caption="Peça - Controlador">
           <img src="./assets/galeria_de_peças/controlador.webp" alt="Peça - Controlador">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/freio.webp" data-lightbox="gallery-parts" data-title="Peça - Freio">
+        <a href="./assets/galeria_de_peças/freio.webp" data-fancybox="gallery-parts" data-caption="Peça - Freio">
           <img src="./assets/galeria_de_peças/freio.webp" alt="Peça - Freio">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/jogo_de_baterias.webp" data-lightbox="gallery-parts" data-title="Peça - Jogo de Baterias">
+        <a href="./assets/galeria_de_peças/jogo_de_baterias.webp" data-fancybox="gallery-parts" data-caption="Peça - Jogo de Baterias">
           <img src="./assets/galeria_de_peças/jogo_de_baterias.webp" alt="Peça - Jogo de Baterias">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/kit_de_freio.webp" data-lightbox="gallery-parts" data-title="Peça - Kit de Freio">
+        <a href="./assets/galeria_de_peças/kit_de_freio.webp" data-fancybox="gallery-parts" data-caption="Peça - Kit de Freio">
           <img src="./assets/galeria_de_peças/kit_de_freio.webp" alt="Peça - Kit de Freio">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/kit_farol.webp" data-lightbox="gallery-parts" data-title="Peça - Kit Farol">
+        <a href="./assets/galeria_de_peças/kit_farol.webp" data-fancybox="gallery-parts" data-caption="Peça - Kit Farol">
           <img src="./assets/galeria_de_peças/kit_farol.webp" alt="Peça - Kit Farol">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/medidor_De_bateria.webp" data-lightbox="gallery-parts" data-title="Peça - Medidor de Bateria">
+        <a href="./assets/galeria_de_peças/medidor_De_bateria.webp" data-fancybox="gallery-parts" data-caption="Peça - Medidor de Bateria">
           <img src="./assets/galeria_de_peças/medidor_De_bateria.webp" alt="Peça - Medidor de Bateria">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/medidor_de_bateria_2.webp" data-lightbox="gallery-parts" data-title="Peça - Medidor de Bateria">
+        <a href="./assets/galeria_de_peças/medidor_de_bateria_2.webp" data-fancybox="gallery-parts" data-caption="Peça - Medidor de Bateria">
           <img src="./assets/galeria_de_peças/medidor_de_bateria_2.webp" alt="Peça - Medidor de Bateria">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/motor.webp" data-lightbox="gallery-parts" data-title="Peça - Motor">
+        <a href="./assets/galeria_de_peças/motor.webp" data-fancybox="gallery-parts" data-caption="Peça - Motor">
           <img src="./assets/galeria_de_peças/motor.webp" alt="Peça - Motor">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/motor_e_sistema_de_torque.webp" data-lightbox="gallery-parts" data-title="Peça - Motor e Sistema de Torque">
+        <a href="./assets/galeria_de_peças/motor_e_sistema_de_torque.webp" data-fancybox="gallery-parts" data-caption="Peça - Motor e Sistema de Torque">
           <img src="./assets/galeria_de_peças/motor_e_sistema_de_torque.webp" alt="Peça - Motor e Sistema de Torque">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/pneus.webp" data-lightbox="gallery-parts" data-title="Peça - Pneus">
+        <a href="./assets/galeria_de_peças/pneus.webp" data-fancybox="gallery-parts" data-caption="Peça - Pneus">
           <img src="./assets/galeria_de_peças/pneus.webp" alt="Peça - Pneus">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/pneus2.webp" data-lightbox="gallery-parts" data-title="Peça - Pneus">
+        <a href="./assets/galeria_de_peças/pneus2.webp" data-fancybox="gallery-parts" data-caption="Peça - Pneus">
           <img src="./assets/galeria_de_peças/pneus2.webp" alt="Peça - Pneus">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/solenoide.webp" data-lightbox="gallery-parts" data-title="Peça - Solenoide">
+        <a href="./assets/galeria_de_peças/solenoide.webp" data-fancybox="gallery-parts" data-caption="Peça - Solenoide">
           <img src="./assets/galeria_de_peças/solenoide.webp" alt="Peça - Solenoide">
         </a>
       </div>
       <div class="swiper-slide">
-        <a href="./assets/galeria_de_peças/tambores_De_freio.webp" data-lightbox="gallery-parts" data-title="Peça - Tambores de Freio">
+        <a href="./assets/galeria_de_peças/tambores_De_freio.webp" data-fancybox="gallery-parts" data-caption="Peça - Tambores de Freio"></a>
           <img src="./assets/galeria_de_peças/tambores_De_freio.webp" alt="Peça - Tambores de Freio">
         </a>
       </div>
@@ -340,7 +337,6 @@
     
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>

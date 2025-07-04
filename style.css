@@ -246,6 +246,7 @@ section:not(.hero) {
   text-align: center;
   background-color: #222;
   color: #fff;
+  width: 100%;
 }
 
 .servicos-prestados h2 {
@@ -260,11 +261,11 @@ section:not(.hero) {
   margin: 0 auto;        /* Centraliza a grade na página */
   padding: 0 1.5rem;     /* <<<<<<< A MÁGICA! Padding de segurança DENTRO da grade */
   box-sizing: border-box;/* Garante que o padding não "estoure" a largura */
-
+  
   /* A grade responsiva que funciona em todas as telas */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 30px;  
 }
 
 /* Estilos para os cards (mantendo o que já tínhamos definido) */
@@ -289,10 +290,8 @@ section:not(.hero) {
   transform: translateY(0) scale(1);
 }
 
-.quadrado:hover {
- /* "Vem pra frente e expande" continua aqui */
- transform: translateY(-10px) scale(1.05) !important; 
-}
+/* Efeito Hover (AGORA COM O BRILHO DE VOLTA) */
+.quadrado:hover { transform: translateY(-10px) scale(1.05) !important; animation: shine 1.2s infinite alternate ease-in-out; }
 
 .quadrado h3 {
   font-size: 1.5rem;
@@ -719,17 +718,62 @@ section:not(.hero) {
   }
 }
 
-.lb-close {
-  background: url('./assets/icon-close.svg') center center no-repeat !important;
-  background-size: contain !important;
-  width: 48px !important;
-  height: 48px !important;
-  top: 20px !important;
-  right: 20px !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+/* ========================================================== */
+/* ESTILOS CORRIGIDOS PARA A GALERIA DE MANUTENÇÕES           */
+/* ========================================================== */
+
+/* O container principal da galeria de manutenções */
+.mySwiper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 16px;
+  
+  /* A altura fixa é a chave para a consistência visual */
+  height: 550px; 
 }
 
-.lb-close:active {
-  transform: scale(1.3);
-  box-shadow: 0 0 20px var(--primary-color, #F5FF7D), 0 0 40px var(--primary-color, #F5FF7D);
+/* O slide individual */
+.mySwiper .swiper-slide {
+  /* REMOVEMOS O FUNDO CINZA DAQUI */
+  background: transparent;
+  overflow: hidden; /* Garante que a imagem respeite o border-radius */
+}
+
+/* A imagem dentro do slide */
+.mySwiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  
+  /* 'object-fit: cover' força a imagem a preencher o espaço, cortando o excesso.
+     Isso garante que todas as imagens pareçam ter o mesmo "molde". */
+  object-fit: cover;
+}
+
+
+/* --- Estilos para as Setas de Navegação (para ambos os carrosséis) --- */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #F5FF7D; /* Cor verde para as setas */
+  --swiper-navigation-size: 30px; /* Tamanho das setas */
+  
+}
+
+.custom-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 9999;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.custom-close:hover {
+  opacity: 1;
 }
