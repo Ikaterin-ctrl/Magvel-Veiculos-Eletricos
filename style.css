@@ -183,7 +183,17 @@ section:not(.hero) {
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 0.5rem;
+  gap: 20px;
 }
+.star-rating {
+  /* Se suas estrelas forem texto ou ícones de fonte: */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Sombra: X Y Blur Cor */
+
+  /* Se suas estrelas forem imagens (PNG, SVG): */
+  /* filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4)); */
+  /* Escolha UMA das opções acima, a que funcionar para o seu caso */
+}
+
 
 /* Galerias */
 /* ========================================================== */
