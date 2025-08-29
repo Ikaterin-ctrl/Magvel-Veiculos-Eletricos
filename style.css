@@ -35,6 +35,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  flex-wrap: wrap;
 }
 .logo-link .logo {
   height: 50px;
@@ -48,34 +49,18 @@ header {
 
 /* Hero Section */
 .hero-text h1 {
-  font-size: 3.5rem; /* Aumenta o tamanho do título principal */
-  font-weight: 700; /* Deixa a fonte mais grossa e impactante */
+  font-size: 3.5rem;
+  font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
 }
 
 .hero-text h2 {
-  font-size: 1.25rem; /* Aumenta um pouco o subtítulo */
+  font-size: 1.25rem;
   font-weight: 400;
-  margin-bottom: 2.5rem; /* Mais espaço antes do botão */
+  margin-bottom: 2.5rem;
 }
 
-/* Estilo para o botão de CTA principal */
-.hero-text .btn-principal {
-  background-color: var(--verde-magvel, #F5FF7D); /* Usando a cor que definimos */
-  color: #fff;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hero-text .btn-principal:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
 .hero {
   display: flex;
   align-items: center;
@@ -83,8 +68,6 @@ header {
   padding: 2rem;
   text-align: left;
   height: 90vh;
-  opacity: 1 !important;
-  transform: none !important;
 }
 
 /* Buttons & Links */
@@ -105,18 +88,10 @@ a, .btn {
 }
 
 .btn:hover {
-  background-color: var(--primary-color);
-  color: var(--dark-text);
   transform: translateY(-2px);
-  animation: shine 1s infinite alternate;
 }
 .btn:active {
   transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(245,255,125,0.7);
-}
-@keyframes shine {
-  0% { box-shadow: 0 0 5px rgba(255,255,255,0.7), 0 0 15px var(--primary-color); }
-  100% { box-shadow: 0 0 20px #000, 0 0 40px var(--primary-color); }
 }
 
 /* Container global */
@@ -126,26 +101,15 @@ a, .btn {
   margin: 0 auto;
 }
 
-/* Seções exceto hero com fade-in */
-section:not(.hero) {
+/* Seções */
+section {
   padding: 2rem 0;
-  opacity: 1;
-  transform: none;
 }
 
-
-.section-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Mostrar benefícios e prova social imediatamente */
 .benefits, .social-proof {
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  opacity: 1 !important;
-  transform: none !important;
+  align-items: center;
   text-align: center;
 }
 
@@ -160,47 +124,38 @@ section:not(.hero) {
   margin-bottom: 3rem;
 }
 
-/* Transforma a lista 'ul' em um container flex */
 .benefits-list {
   display: flex;
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
-  list-style: none; /* Remove as bolinhas da lista */
+  list-style: none;
   padding: 0;
 }
 
-/* Estiliza cada item 'li' como um card */
 .benefits-list li {
-  background-color: var(--branco-puro, #fff);
+  background-color: #fff;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
   flex-basis: 320px;
   flex-grow: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.benefits-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
 .social-proof .star-rating {
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 0.5rem;
-  gap: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
-.star-rating {
-  /* Se suas estrelas forem texto ou ícones de fonte: */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Sombra: X Y Blur Cor */
-
-  /* Se suas estrelas forem imagens (PNG, SVG): */
-  /* filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4)); */
-  /* Escolha UMA das opções acima, a que funcionar para o seu caso */
-}
-
 
 /* Galerias */
-/* ========================================================== */
-/* ESTILOS DAS GALERIAS (SWIPERJS) - VERSÃO CORRIGIDA         */
-/* ========================================================== */
-
-/* Estilo para as seções que contêm as galerias */
 .masonry-gallery, .masonry-gallery2 {
   padding: 60px 20px;
   text-align: center;
@@ -211,22 +166,18 @@ section:not(.hero) {
   margin-bottom: 3rem;
 }
 
-/* Container principal do Swiper */
 .swiper {
   width: 100%;
-  max-width: 900px; /* Largura máxima da galeria */
+  max-width: 900px;
   margin: 0 auto;
-  border-radius: 16px; /* Bordas arredondadas no container principal */  
-  /* A MÁGICA ACONTECE AQUI: Definimos uma altura fixa */
-  height: 500px; 
+  border-radius: 16px;
+  height: 500px;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #EEE; /* Um fundo sutil para o caso de a imagem demorar a carregar */
-  
-  /* Essas propriedades garantem que o conteúdo fique centralizado */
+  background: #EEE;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -236,23 +187,18 @@ section:not(.hero) {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+  object-fit: cover;
 }
 
-/* Estilizando as setas de navegação */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #3A7D44; /* Cor verde para as setas */
-  --swiper-navigation-size: 30px; /* Tamanho das setas */
+  color: #3A7D44;
+  --swiper-navigation-size: 30px;
 }
 
-
-/* ========================================================== */
-/* CSS DEFINITIVO E CORRIGIDO PARA A SEÇÃO DE SERVIÇOS      */
-/* ========================================================== */
-
+/* Serviços Prestados */
 .servicos-prestados {
-  padding: 4rem 0; /* SEM padding nas laterais da seção principal */
+  padding: 4rem 0;
   text-align: center;
   background-color: #222;
   color: #fff;
@@ -261,24 +207,20 @@ section:not(.hero) {
 
 .servicos-prestados h2 {
   font-size: 2.5rem;
-  margin-bottom: 5rem; /* << AUMENTE ESTE VALOR */
+  margin-bottom: 5rem;
 }
 
 .servicos {
-  /* A CORREÇÃO PRINCIPAL ESTÁ AQUI */
   width: 100%;
-  max-width: 1100px;     /* Limita a largura da grade no desktop */
-  margin: 0 auto;        /* Centraliza a grade na página */
-  padding: 0 1.5rem;     /* <<<<<<< A MÁGICA! Padding de segurança DENTRO da grade */
-  box-sizing: border-box;/* Garante que o padding não "estoure" a largura */
-  
-  /* A grade responsiva que funciona em todas as telas */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;  
+  gap: 30px;
 }
 
-/* Estilos para os cards (mantendo o que já tínhamos definido) */
 .quadrado {
   aspect-ratio: 1 / 1;
   display: flex;
@@ -290,18 +232,12 @@ section:not(.hero) {
   border-radius: 20px;
   background-color: #333;
   color: #fff;
-  opacity: 0;
-  transform: translateY(30px) scale(0.95);
   transition: transform 0.6s ease-out, opacity 0.6s ease-out, box-shadow 0.4s ease-in-out;
 }
 
-.quadrado.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+.quadrado:hover {
+  transform: translateY(-10px) scale(1.05) !important;
 }
-
-/* Efeito Hover (AGORA COM O BRILHO DE VOLTA) */
-.quadrado:hover { transform: translateY(-10px) scale(1.05) !important; animation: shine 1.2s infinite alternate ease-in-out; }
 
 .quadrado h3 {
   font-size: 1.5rem;
@@ -312,7 +248,6 @@ section:not(.hero) {
   font-size: 1rem;
 }
 
-/* O último item que se centraliza sozinho no desktop */
 .last-item {
   grid-column: 1 / -1;
   aspect-ratio: auto;
@@ -325,20 +260,7 @@ section:not(.hero) {
     }
 }
 
-/* ========================================================== */
-/* EFEITO BRILHO AUTOMÁTICO PARA O MOBILE                     */
-/* ========================================================== */
-
-@media (max-width: 768px) {
-  /* Esta nova classe '.shine-on-scroll' será adicionada pelo JS */
-  .quadrado.shine-on-scroll {
-    /* Ativa a animação de brilho no mobile quando o card aparece */
-    animation: shine 1.2s infinite alternate ease-in-out;
-  }
-}
-
-
-
+/* Interest Capture */
 .interest-capture {
   background-color: #fff;
   padding: 2.5rem 2rem;
@@ -368,64 +290,25 @@ section:not(.hero) {
   margin-bottom: 1.5rem;
 }
 
-.interest-capture .btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #000;
-  border-radius: 50px;
-  background-color: var(--primary-color);
-  color: #000;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.interest-capture .btn:hover {
-  background-color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.interest-capture .btn:active {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(245, 255, 125, 0.6);
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .interest-capture {
-    padding: 2rem 1rem;
-  }
-
-  .interest-capture h2 {
-    font-size: 1.5rem;
-  }
-
-  .interest-capture p {
-    font-size: 1rem;
-  }
-}
-
-
+/* Contact Section */
 .contact-section {
 	padding: 40px 20px;
-	text-align: center
+	text-align: center;
 }
 
 .contact-section h2{
 	font-size: 2em;
 	color: var(--secondary-color);
-	margin-bottom: 20px
+	margin-bottom: 20px;
 }
 
 .contact-info {
-	margin-bottom: 20px
+	margin-bottom: 20px;
 }
 
 .contact-info p {
 	font-size: 1.2em;
-	margin: 5px 0
+	margin: 5px 0;
 }
 
 .map-container {
@@ -433,7 +316,7 @@ section:not(.hero) {
 	margin: 20px auto;
 	border-radius: 10px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
-	overflow: hidden
+	overflow: hidden;
 }
 
 .map-iframe {
@@ -441,35 +324,14 @@ section:not(.hero) {
 	height: 300px;
 	border: 0;
 	border-radius: 10px;
-	box-shadow: none
 }
 
-.contact-buttons {
-  text-align: center;
-        justify-content: center; /* Centraliza os botões no header em telas muito pequenas */
-    }
-
-    footer {
+/* Footer */
+footer {
   background-color: #fff;
   padding: 2rem 1rem;
   text-align: center;
   border-top: 2px solid #f0f0f0;
-}
-
-.footer-nav {
-  margin-bottom: 1rem;
-}
-
-.footer-nav a {
-  margin: 0 1rem;
-  color: var(--secondary-color);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.footer-nav a:hover {
-  color: #000;
 }
 
 .impact-text {
@@ -479,311 +341,226 @@ section:not(.hero) {
   font-size: 1rem;
 }
 
-
+/* Galeria de Peças */
 #masonry-gallery2 .swiper-slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Mantém a imagem inteira sem cortar */
+  object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.benefits-list li {
-  background-color: var(--branco-puro, #fff);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-  flex-basis: 320px;
-  flex-grow: 1;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* =================================== */
+/* ========== Media Queries ========== */
+/* =================================== */
+
+/* Telas grandes (desktops) */
+@media (min-width: 1201px) {
+  .container {
+    max-width: 1140px;
+  }
 }
 
-.benefits-list li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+/* Telas médias (laptops e tablets em paisagem) */
+@media (max-width: 1200px) {
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+  .hero-text h2 {
+    font-size: 1.15rem;
+  }
 }
 
-/* ==================== */
-/* Telas até 1024px */
-/* ==================== */
+/* Telas de tablets */
 @media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
   .hero {
     flex-direction: column;
     text-align: center;
     height: auto;
+    padding: 2rem 1rem;
   }
-
   .hero-text h1 {
     font-size: 2.5rem;
   }
-
   .hero-text h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
-
-
+  .benefits-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .benefits-list li {
+    flex-basis: 100%;
+    max-width: 400px;
+  }
 }
 
-/* ==================== */
-/* Telas até 768px */
-/* ==================== */
+/* Telas de celulares em paisagem e tablets em retrato */
 @media (max-width: 768px) {
+  body {
+    line-height: 1.6;
+  }
   .hero-text h1 {
     font-size: 2rem;
   }
-
   .hero-text h2 {
     font-size: 1rem;
   }
-
   .btn {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
-
+  .logo-link .logo {
+    height: 40px;
+  }
+  .benefits h2,
+  .masonry-gallery h2,
+  .masonry-gallery2 h2,
+  .servicos-prestados h2,
+  .contact-section h2 {
+    font-size: 2rem;
+  }
+  .servicos {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .quadrado, .servicos .last-item {
+    aspect-ratio: auto;
+    min-height: 200px;
+    grid-column: auto;
+  }
+  .interest-capture {
+    padding: 2rem 1.5rem;
+  }
+  .interest-capture h2 {
+    font-size: 1.5rem;
+  }
   .map-iframe {
     width: 100%;
     height: 250px;
   }
-
-  .footer-nav a {
-    display: block;
-    margin: 0.5rem 0;
-  }
-
-
-  /* Ajuste da galeria de peças */
-  #masonry-gallery2 .swiper-slide img {
-    height: 250px;
-    object-fit: contain;
+  .mySwiper, .mySwiperParts {
+    height: 400px;
   }
 }
 
-/* ==================== */
-/* Telas até 500px */
-/* ==================== */
-@media (max-width: 500px) {
-
-  .contact-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-}
-
-/* ==================== */
-/* Telas até 480px */
-/* ==================== */
+/* Telas de celulares */
 @media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 1.7rem;
+  header {
+    padding: 1rem;
   }
-
+  .logo-link .logo {
+    height: 35px;
+  }
+  .contact-buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .contact-buttons .btn {
+    width: 80%;
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
   .hero-text h2 {
     font-size: 0.9rem;
   }
-
-  header .contact-buttons .btn {
-    padding: 0.4rem 1rem;
-    font-size: 0.9rem;
+  .hero img.large-golf-cart {
+    max-width: 100%;
+    height: auto;
   }
-  .contact-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-
-  .hero img {
-    max-height: 200px;
-    object-fit: contain;
-  }
-
   .benefits-list li {
-    padding: 1rem;
+    padding: 1.5rem;
   }
-
-  .interest-capture {
-    padding: 1.5rem 1rem;
+  .quadrado h3 {
+    font-size: 1.2rem;
   }
-
-  .footer-nav a {
-    margin: 0.8rem 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  .contact-buttons .btn {
-    flex: 1 1 45%;
-    min-width: 120px;
-    padding: 0.5rem 1rem;
+  .quadrado p {
     font-size: 0.9rem;
   }
-}
-
-@media (max-width: 768px) {
-  .logo-link .logo {
-    height: 35px; /* ou outro valor menor, ajuste conforme quiser */
+  .mySwiper, .mySwiperParts {
+    height: 300px;
   }
 }
 
-@media (max-width: 480px) {
-  .logo-link .logo {
-    height: 30px;
-  }
-}
+/* =================================== */
+/* ========== Hamburger Menu ========== */
+/* =================================== */
 
-/* ========================================================== */
-/* AJUSTE FINAL: FORÇAR 2 COLUNAS DE SERVIÇOS NO MOBILE       */
-/* ========================================================== */
-
-@media (max-width: 768px) {
-  .servicos {
-    /* Força a grade a ter 2 colunas em telas de até 768px */
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px; /* Diminuímos o espaço entre os cards no mobile */
-  }
-
-  /* Também ajustamos o texto para caber melhor nos cards menores */
-  .quadrado h3 {
-    font-size: 1.1rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .quadrado p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
-
-  /* Ajuste para o último item não ficar gigante no modo de 2 colunas */
-  .servicos .last-item {
-      grid-column: 1 / -1; /* Deixamos ele ocupar a largura toda */
-      aspect-ratio: auto;
-  }
-}
-
-/* ========================================================== */
-/* LAYOUT FINAL E RESPONSIVO PARA A SEÇÃO DE SERVIÇOS         */
-/* ========================================================== */
-
-@media (max-width: 768px) {
-  /* Para telas menores, a grade terá apenas 1 coluna */
-  .servicos {
-    grid-template-columns: 1fr;
-    gap: 20px; /* Um espaçamento vertical maior fica bom */
-  }
-
-  /* Como agora temos mais espaço horizontal, não precisamos mais
-     que os cards sejam quadrados perfeitos. Eles podem crescer na altura. */
-  .quadrado, .servicos .last-item {
-    aspect-ratio: auto; /* Remove a proporção de 1/1 */
-    min-height: 220px;  /* Garante uma altura mínima agradável */
-    grid-column: auto;  /* Reseta qualquer regra de posicionamento */
-  }
-
-  /* Aumentamos um pouco a fonte, já que agora há mais espaço */
-  .quadrado h3 {
-    font-size: 1.5rem;
-  }
-  
-  .quadrado p {
-    font-size: 1rem;
-  }
-}
-
-/* ======================================================== */
-/* CORREÇÃO MOBILE PARA GALERIA DE PEÇAS (NÃO ESTICAR)      */
-/* Adicione este bloco NO FINAL do seu arquivo style.css    */
-/* ======================================================== */
-
-@media (max-width: 768px) {
-
-  /* 1. Definimos uma altura menor para o carrossel de PEÇAS no mobile */
-  /* Usamos a classe específica .mySwiperParts que demos a ele no HTML */
-  .mySwiperParts {
-    height: 250px; /* Reduz a altura do carrossel no celular. Ajuste se quiser. */
-  }
-
-  /* 2. Ajustamos a imagem para ela NUNCA esticar */
-  .mySwiperParts .swiper-slide img {
-    width: 100%;
-    height: 100%;
-
-    /* 'contain' garante que a imagem inteira apareça, sem cortar ou esticar. */
-    object-fit: contain;
-  }
-
-  /* 3. Opcional: Ajustamos o fundo do slide, já que a imagem pode não preencher tudo */
-  .mySwiperParts .swiper-slide {
-    background: var(--branco-puro, #fff);
-    border-radius: 12px;
-  }
-}
-
-
-/* ========================================================== */
-/* ESTILOS CORRIGIDOS PARA A GALERIA DE MANUTENÇÕES           */
-/* ========================================================== */
-
-/* O container principal da galeria de manutenções */
-.mySwiper {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  border-radius: 16px;
-  
-  /* A altura fixa é a chave para a consistência visual */
-  height: 550px; 
-}
-
-/* O slide individual */
-.mySwiper .swiper-slide {
-  /* REMOVEMOS O FUNDO CINZA DAQUI */
-  background: transparent;
-  overflow: hidden; /* Garante que a imagem respeite o border-radius */
-}
-
-/* A imagem dentro do slide */
-.mySwiper .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  
-  /* 'object-fit: cover' força a imagem a preencher o espaço, cortando o excesso.
-     Isso garante que todas as imagens pareçam ter o mesmo "molde". */
-  object-fit: cover;
-}
-
-
-/* --- Estilos para as Setas de Navegação (para ambos os carrosséis) --- */
-.swiper-button-next,
-.swiper-button-prev {
-  color: #F5FF7D; /* Cor verde para as setas */
-  --swiper-navigation-size: 30px; /* Tamanho das setas */
-  
-}
-
-.custom-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  z-index: 9999;
+.hamburger-menu {
+  display: none; /* Escondido por padrão */
   background: none;
   border: none;
-  font-size: 2.5rem;
-  color: #fff;
   cursor: pointer;
-  opacity: 0.9;
-  transition: opacity 0.2s;
+  padding: 0;
+  z-index: 1001;
 }
-.custom-close:hover {
-  opacity: 1;
+
+.hamburger-menu__line {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  margin: 6px 0;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block; /* Visível em telas pequenas */
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .contact-nav {
+    display: flex; /* Começa como flex para centralizar */
+    position: fixed;
+    top: 0;
+    right: -100%; /* Começa fora da tela */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: right 0.4s ease-in-out;
+  }
+
+  .contact-nav.is-open {
+    right: 0; /* Desliza para dentro da tela */
+  }
+
+  .contact-nav .contact-buttons {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-nav .contact-buttons .btn {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    width: 280px; /* Largura aumentada */
+    text-align: center;
+  }
+
+  /* Animação do botão hambúrguer para 'X' */
+  .hamburger-menu.is-open .hamburger-menu__line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger-menu.is-open .hamburger-menu__line:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-menu.is-open .hamburger-menu__line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  .hamburger-menu.is-open .hamburger-menu__line {
+    background-color: #fff;
+  }
 }

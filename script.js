@@ -104,4 +104,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  /* ================================================================== */
+  /* CONTROLE DO MENU HAMBÚRGUER                                      */
+  /* ================================================================== */
+
+  const hamburgerBtn = document.querySelector('.hamburger-menu');
+  const contactNav = document.querySelector('.contact-nav');
+
+  if (hamburgerBtn && contactNav) {
+    hamburgerBtn.addEventListener('click', function() {
+      const isOpen = this.classList.toggle('is-open');
+      contactNav.classList.toggle('is-open');
+      this.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+  }
 });
