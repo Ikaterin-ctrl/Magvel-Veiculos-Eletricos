@@ -178,7 +178,7 @@ section {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #EEE;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -193,8 +193,19 @@ section {
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #3A7D44;
-  --swiper-navigation-size: 30px;
+  color: #F5FF7D; /* Lime green/yellow color */
+  --swiper-navigation-size: 50px; /* A bit larger */
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* A bit more pronounced shadow */
+}
+
+.swiper-pagination-bullet {
+  background-color: #3A7D44;
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #F5FF7D;
 }
 
 /* Serviços Prestados */

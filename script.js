@@ -56,6 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
@@ -71,6 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
     autoplay: {
       delay: 4000,
