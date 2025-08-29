@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- Fancybox JS -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
@@ -46,17 +47,17 @@
     <main>
       <!-- Hero Section -->
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-text">
+        <div class="hero-text" data-aos="fade-right">
           <h1 id="hero-title" style="font-family: 'Montserrat',sans-serif;">Magvel<br>Manutenção em Veículos Elétricos</h1>
           <h2 style="font-family: 'Roboto',sans-serif;">A manutenção que seu carrinho de Golfe merece</h2>
         </div>
-        <div class="hero-image">
+        <div class="hero-image" data-aos="fade-left">
           <img src="./assets/hero/Hero.webp" alt="Golf Cart" class="large-golf-cart">
         </div>
       </section>
 
       <!-- Resumo de Benefícios -->
-      <section class="benefits" aria-labelledby="benefits-title">
+      <section class="benefits" aria-labelledby="benefits-title" data-aos="fade-up">
         <h2 id="benefits-title">Por que escolher a Magvel?</h2>
         <ul class="benefits-list">
           <li>Atendimento rápido e direto, sem formulários</li>
@@ -66,7 +67,7 @@
       </section>
 
       <!-- Prova Social Google -->
-      <section class="social-proof" aria-labelledby="social-proof-title">
+      <section class="social-proof" aria-labelledby="social-proof-title" data-aos="fade-up">
         <h2 id="social-proof-title">Avaliações no Google</h2>
         <p class="star-rating">★★★★★</p>
         <p><strong>5 estrelas com base em avaliações no google</strong></p>
@@ -74,7 +75,7 @@
       </section>
 
       <!-- Galeria de Manutenções -->
-      <section id="masonry-gallery" class="masonry-gallery" aria-labelledby="manute-gallery-title">
+      <section id="masonry-gallery" class="masonry-gallery" aria-labelledby="manute-gallery-title" data-aos="fade-up">
         <h2 id="manute-gallery-title">Galeria de Manutenções</h2>
         <div class="swiper mySwiper">
           <button class="custom-close" onclick="closeGallery()" aria-label="Fechar galeria">&times;</button>
@@ -156,7 +157,7 @@
       </section>
 
       <!-- Serviços Prestados -->
-      <section class="servicos-prestados" aria-labelledby="services-title">
+      <section class="servicos-prestados" aria-labelledby="services-title" data-aos="fade-up">
         <h2 id="services-title">Serviços Prestados</h2>
         <div class="servicos">
           <div class="quadrado green-lime" id="quadrado1">
@@ -191,7 +192,7 @@
       </section>
 
       <!-- Bloco de Captura -->
-      <section class="interest-capture" aria-labelledby="capture-title">
+      <section class="interest-capture" aria-labelledby="capture-title" data-aos="fade-up">
         <h2 id="capture-title">Não encontrou o que procurava?</h2>
         <p>Entre em contato conosco e encontramos a solução para você!</p>
         <a href="https://wa.me/5519983680292" class="btn" id="whatsapp-link">
@@ -200,7 +201,7 @@
       </section>
 
       <!-- Galeria de Peças -->
-      <section id="masonry-gallery2" class="masonry-gallery2" aria-labelledby="pieces-gallery-title">
+      <section id="masonry-gallery2" class="masonry-gallery2" aria-labelledby="pieces-gallery-title" data-aos="fade-up">
         <h2 id="pieces-gallery-title">Galeria de Peças</h2>
         <div class="swiper mySwiperParts">
           <div class="swiper-wrapper">
@@ -306,7 +307,7 @@
       </section>
 
       <!-- Contato Final -->
-      <section class="contact-section" aria-labelledby="contact-title">
+      <section class="contact-section" aria-labelledby="contact-title" data-aos="fade-up">
         <h2 id="contact-title">Entre em Contato Conosco</h2>
         <div class="contact-info">
           <p><strong>Telefones:</strong></p>
@@ -341,6 +342,10 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
