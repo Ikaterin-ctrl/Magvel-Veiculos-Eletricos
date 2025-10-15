@@ -93,6 +93,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  // Aplica a imagem de cada slide como background.
+  // Isso garante que a imagem apareça inteira e centralizada em qualquer tamanho de galeria.
+  document.querySelectorAll('.swiper-slide').forEach(slide => {
+    const img = slide.querySelector('img');
+    if (img) {
+      slide.style.backgroundImage = `url(${img.src})`;
+    }
+  });
 
   /* ================================================================== */
   /* HORÁRIO DE ATENDIMENTO DINÂMICO                                    */

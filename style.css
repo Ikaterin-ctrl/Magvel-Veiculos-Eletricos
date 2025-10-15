@@ -191,11 +191,21 @@ section {
   align-items: center;
 }
 
+/* Esconde a tag <img>, pois usaremos a imagem como background do slide */
 .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  display: none;
+  object-fit: contain; /* Garante que a imagem apareça inteira, sem cortar */
+}
+
+/* Configura o slide para exibir a imagem como background */
+.swiper-slide {
+  background-size: contain; /* Garante que a imagem caiba inteira */
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .swiper-button-next,
@@ -381,6 +391,8 @@ footer {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+/* A regra geral para .swiper-slide já cobre esta galeria. */
+/* Este seletor específico não é mais necessário. */
 
 /* =================================== */
 /* ========== Media Queries ========== */
@@ -477,6 +489,7 @@ footer {
   }
   .mySwiper, .mySwiperParts {
     height: 400px;
+    height: 320px; /* Altura ajustada para tablets */
   }
 }
 
@@ -518,6 +531,7 @@ footer {
   }
   .mySwiper, .mySwiperParts {
     height: 300px;
+    height: 250px; /* Altura ajustada para celulares */
   }
 }
 
