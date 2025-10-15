@@ -5,6 +5,7 @@
   --secondary-color: #333;
   --light-bg: #f9f9f9;
   --dark-bg: #1e1e1e;
+  --green-accent: #3A7D44;
   --light-text: #333;
   --dark-text: #f1f1f1;
 }
@@ -50,6 +51,7 @@ header {
 
 /* Hero Section */
 .hero-text h1 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.2;
@@ -57,6 +59,7 @@ header {
 }
 
 .hero-text h2 {
+  font-family: 'Roboto', sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
   margin-bottom: 2.5rem;
@@ -89,10 +92,13 @@ a, .btn {
 }
 
 .btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   transform: translateY(-2px);
 }
 .btn:active {
   transform: scale(1.1);
+  transform: translateY(0) scale(0.98);
 }
 
 /* Container global */
@@ -152,6 +158,7 @@ section {
 .social-proof .star-rating {
   font-size: 2rem;
   color: var(--primary-color);
+  color: #ffc107; /* Cor de estrela mais tradicional */
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
@@ -200,12 +207,14 @@ section {
 
 .swiper-pagination-bullet {
   background-color: #3A7D44;
+  background-color: var(--green-accent);
   width: 10px;
   height: 10px;
 }
 
 .swiper-pagination-bullet-active {
   background-color: #F5FF7D;
+  background-color: var(--primary-color);
 }
 
 /* Serviços Prestados */
@@ -245,10 +254,15 @@ section {
   background-color: #333;
   color: #fff;
   transition: transform 0.6s ease-out, opacity 0.6s ease-out, box-shadow 0.4s ease-in-out;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0; /* Começa invisível para a animação de entrada */
+  transform: translateY(30px);
 }
 
 .quadrado:hover {
   transform: translateY(-10px) scale(1.05) !important;
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(245, 255, 125, 0.2);
 }
 
 .quadrado h3 {
@@ -258,6 +272,12 @@ section {
 
 .quadrado p {
   font-size: 1rem;
+}
+
+/* Classe de animação para os cards de serviço */
+.quadrado.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .last-item {
@@ -575,4 +595,21 @@ footer {
   .hamburger-menu.is-open .hamburger-menu__line {
     background-color: #fff;
   }
+}
+
+/* =================================== */
+/* ===== Animações de Entrada ======== */
+/* =================================== */
+
+/* Estilo inicial para elementos com a classe .animar */
+.animar {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Estilo final quando o elemento se torna visível */
+.animar.section-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
